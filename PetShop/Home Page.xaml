@@ -18,7 +18,7 @@
             </Button.Background>
         </Button>
         <Label Content="Pet Shop" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="91" Margin="0,111,0,0" VerticalAlignment="Top" Width="324" FontSize="72" FontFamily="Britannic Bold" BorderThickness="1" Foreground="Black" FontWeight="Bold" Background="White" BorderBrush="Black"/>
-        <Button Content="" x:Name="btOwner" HorizontalAlignment="Left" Margin="214,588,0,0" VerticalAlignment="Top" Height="232" Width="240" BorderBrush="#00000000">
+        <Button Content="" x:Name="btOwner" HorizontalAlignment="Left" Margin="214,588,0,0" VerticalAlignment="Top" Height="232" Width="240" BorderBrush="#00000000" Click="btOwner_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Owner.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
@@ -28,7 +28,7 @@
                 <ImageBrush ImageSource="/Items.jpg" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btOrigin" HorizontalAlignment="Center" Margin="0,588,0,0" VerticalAlignment="Top" Height="232" Width="240" BorderBrush="#00000000">
+        <Button Content="" x:Name="btOrigin" HorizontalAlignment="Center" Margin="0,588,0,0" VerticalAlignment="Top" Height="232" Width="240" BorderBrush="#00000000" Click="btOrigin_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Origin.png" Stretch="Uniform" TileMode="None"/>
             </Button.Background>

@@ -22,7 +22,7 @@ namespace PetShop
         public Home_Page()
         {
             InitializeComponent();
-            lbGetDate.Content= DateTime.Now.ToString("yyyy-MM-dd");
+            lbGetDate.Content = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,20 @@ namespace PetShop
         private void btPet_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btOwner_Click(object sender, RoutedEventArgs e)
+        {
+            Owner_Page OwP = new Owner_Page();
+            OwP.Show();
+            this.Close();
+        }
+
+        private void btOrigin_Click(object sender, RoutedEventArgs e)
+        {
+            Origin_Page OrP = new Origin_Page();
+            OrP.Show();
+            this.Close();
         }
     }
 }
