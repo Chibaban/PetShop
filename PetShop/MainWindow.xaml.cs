@@ -71,15 +71,16 @@ namespace PetShop
                 else
                 {
                     MessageBox.Show("Invalid Credentials!");
-                    tbAccount.Text = "";
-                    pbPassword.Password = "";
+                    tbAccount.Text = null;
+                    pbPassword.Password = null;
                 }
+
             }
             else
             {
                 MessageBox.Show("Please input a credential!");
-                tbAccount.Text = "";
-                pbPassword.Password = "";
+                tbAccount.Text = null;
+                pbPassword.Password = null;
             }
         }
     }

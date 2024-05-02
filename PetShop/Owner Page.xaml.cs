@@ -23,17 +23,18 @@ namespace PetShop
     /// </summary>
     public partial class Owner_Page : Window
     {
+        PetShopDataContext _PSDC = null;
         public Owner_Page()
         {
             InitializeComponent();
             lbGetDate.Content = DateTime.Now.ToString("yyyy-MM-dd");
 
-            using (var context = new PetShopDataContext())
-            {
-                var data = from owners in context.Owners
-                           select owners.Owners_LastName + ", " + owners.Owners_FirstName;
-                lbOwners.ItemsSource = data.ToList();
-            }
+            _PSDC = new PetShopDataContext
+                (Properties.Settings.Default.Pet_Shop_DatabaseConnectionString);
+
+            var OwnerData = from owners in _PSDC.Owners
+                        select owners.Owners_LastName + ", " + owners.Owners_FirstName;
+            lbOwners.ItemsSource = OwnerData.ToList();
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
@@ -47,55 +48,31 @@ namespace PetShop
         {
             if (lbOwners.SelectedIndex >= 0 && lbOwners.SelectedIndex < lbOwners.Items.Count)
             {
-                using (var context = new PetShopDataContext())
+                var selectedItem = lbOwners.SelectedItem.ToString();
+                var OwnersInfo = _PSDC.Owners.FirstOrDefault(o => o.Owners_LastName + ", " + o.Owners_FirstName == selectedItem);
+                if (OwnersInfo != null)
                 {
-                    var selectedItem = lbOwners.SelectedItem.ToString();
-                    var contact = context.Owners.FirstOrDefault(u => u.Owners_LastName + ", " + u.Owners_FirstName == selectedItem);
-                    if (contact != null)
-                    {
-                        tbOwnerID.Text = contact.Owners_ID;
-                        tbOwnerFName.Text = contact.Owners_FirstName;
-                        tbOwnerLName.Text = contact.Owners_LastName;
-                        tbOwnerContact.Text = contact.Owners_ContactNumber;
-                        tbOwnerEmail.Text = contact.Owners_Email;
-                    }
+                    tbOwnerID.Text = OwnersInfo.Owners_ID;
+                    tbOwnerFName.Text = OwnersInfo.Owners_FirstName;
+                    tbOwnerLName.Text = OwnersInfo.Owners_LastName;
+                    tbOwnerContact.Text = OwnersInfo.Owners_ContactNumber;
+                    tbOwnerEmail.Text = OwnersInfo.Owners_Email;
                 }
             }
         }
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new PetShopDataContext())
-            {
-                var newRecord = context.Owners;
+            _PSDC.Proc_Add_Owner 
+                (tbOwnerID.Text, tbOwnerFName.Text, tbOwnerLName.Text, tbOwnerContact.Text, tbOwnerEmail.Text);
 
+            _PSDC.SubmitChanges();
 
-                {
-                    newRecord.Owners_ID = tbOwnerID.Text;
-
-                    var temp = tbOwnerID.Text;
-                    newRecord.Owners_ID = temp;
-
-                    
-
-
-                    Owners_FirstName = tbOwnerFName.Text,
-                    Owners_LastName = tbOwnerLName.Text,
-                    Owners_ContactNumber = tbOwnerContact.Text,
-                    Owners_Email = tbOwnerEmail.Text
-                };
-
-                context.Owners.InsertOnSubmit(newRecord);
-                context.SubmitChanges();
-            }
-
-            UpdateListView();
-
-            tbOwnerID.Text = "";
-            tbOwnerFName.Text = "";
-            tbOwnerLName.Text = "";
-            tbOwnerContact.Text = "";
-            tbOwnerEmail.Text = "";
+            tbOwnerID.Text = null;
+            tbOwnerFName.Text = null;
+            tbOwnerLName.Text = null;
+            tbOwnerContact.Text = null;
+            tbOwnerEmail.Text = null;
         }
     }
 }

@@ -26,11 +26,22 @@ namespace PetShop.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CCL02-32;Initial Catalog=\"Pet Shop Database\";Integrated Security=True" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CCL01-19;Initial Catalog=\"Pet Shop Database\";Integrated Security=True" +
             ";Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
         public string Pet_Shop_DatabaseConnectionString {
             get {
                 return ((string)(this["Pet_Shop_DatabaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CCL01-19\\MSSQLSERVER1;Initial Catalog=\"Pet Shop Database\";Integrated " +
+            "Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
+        public string Pet_Shop_DatabaseConnectionString1 {
+            get {
+                return ((string)(this["Pet_Shop_DatabaseConnectionString1"]));
             }
         }
     }

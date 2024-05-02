@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pet Shop Database" Class="PetShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-ETCNUFV\SQLEXPRESS;Initial Catalog=&quot;Pet Shop Database&quot;;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="PetShop.Properties.Settings" SettingsPropertyName="Pet_Shop_DatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CCL01-19\MSSQLSERVER1;Initial Catalog=&quot;Pet Shop Database&quot;;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="PetShop.Properties.Settings" SettingsPropertyName="Pet_Shop_DatabaseConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Account" Member="Accounts">
     <Type Name="Account">
       <Column Name="Account_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -132,4 +132,30 @@
       <Association Name="Vaccine_Pet" Member="Pets" ThisKey="Vaccine_ID" OtherKey="Vaccine_ID" Type="Pet" />
     </Type>
   </Table>
+  <Function Name="dbo.[Proc Add_Pet]" Method="Proc_Add_Pet">
+    <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Type" Parameter="pet_Type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Sex" Parameter="pet_Sex" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Pedigree" Parameter="pet_Pedigree" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Color" Parameter="pet_Color" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Birthday" Parameter="pet_Birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Pet_Growth" Parameter="pet_Growth" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Vaccine_ID" Parameter="vaccine_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Info" Parameter="pet_Info" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Price" Parameter="pet_Price" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pet_Status" Parameter="pet_Status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Photo" Parameter="pet_Photo" Type="System.String" DbType="VarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Owner" Method="Proc_Add_Owner">
+    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_FirstName" Parameter="owners_FirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_LastName" Parameter="owners_LastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_ContactNumber" Parameter="owners_ContactNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_Email" Parameter="owners_Email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
