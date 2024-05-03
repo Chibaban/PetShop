@@ -17,7 +17,7 @@
                 <ImageBrush ImageSource="/home.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Viewing.png"/>
             </Button.Background>
@@ -32,10 +32,11 @@
         <TextBox x:Name="tbOwnerLName" HorizontalAlignment="Left" Height="46" Margin="456,617,0,0" TextWrapping="Wrap" Text="Owner's Last Name" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOwnerContact" HorizontalAlignment="Left" Height="46" Margin="456,670,0,0" TextWrapping="Wrap" Text="Owner's Contact #" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Left" Height="46" Margin="373,721,0,0" TextWrapping="Wrap" Text="Owner's Email" VerticalAlignment="Top" Width="489" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnSave_Click"/>
         <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1057,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
         <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="59" Margin="31,131,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="59" Margin="31,29,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="755,180,0,0" VerticalAlignment="Top" Height="49" Width="128" FontSize="36" FontFamily="Britannic Bold"/>
     </Grid>
 </Window>
