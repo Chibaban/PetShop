@@ -73,6 +73,8 @@ namespace PetShop
             tbOwnerLName.Text = null;
             tbOwnerContact.Text = null;
             tbOwnerEmail.Text = null;
+
+            lbOwners.ItemsSource = null;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
