@@ -46,7 +46,7 @@ namespace PetShop
                 existingPurchases.Item_ID = tbItemID.Text;
                 existingPurchases.Item_Quantity = tbItemQuantity.Text;
                 existingPurchases.Purchase_Total = int.Parse(tbPurchaseTotal.Text);
-                existingPurchases.Purchase_Date = DateTime.Parse(tbPurchaseDate.Text);
+                existingPurchases.Purchase_Date = DateTime.Parse(tbPurchaseDate.Text).Date;
                 existingPurchases.Owners_ID = tbOwnerID.Text;
                 existingPurchases.Customer_Number = tbCustomerNum.Text;
                 existingPurchases.Staff_ID = tbStaffID.Text;
@@ -98,7 +98,7 @@ namespace PetShop
                     tbItemID.Text = PurchasesInfo.Item_ID;
                     tbItemQuantity.Text = PurchasesInfo.Item_Quantity;
                     tbPurchaseTotal.Text = PurchasesInfo.Purchase_Total.ToString();
-                    tbPurchaseDate.Text = PurchasesInfo.Purchase_Date.ToString();
+                    tbPurchaseDate.Text = PurchasesInfo.Purchase_Date.ToShortDateString();
                     tbOwnerID.Text = PurchasesInfo.Owners_ID;
                     tbCustomerNum.Text = PurchasesInfo.Customer_Number;
                     tbStaffID.Text = PurchasesInfo.Staff_ID;

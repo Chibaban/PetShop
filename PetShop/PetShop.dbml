@@ -132,7 +132,50 @@
       <Association Name="Vaccine_Pet" Member="Pets" ThisKey="Vaccine_ID" OtherKey="Vaccine_ID" Type="Pet" />
     </Type>
   </Table>
-  <Function Name="dbo.Proc_Add_Pet" Method="Proc_Add_Pet">
+  <Function Name="dbo.[Proc Add_Pet]" Method="Proc_Add_Pet">
+    <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Type" Parameter="pet_Type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Sex" Parameter="pet_Sex" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Pedigree" Parameter="pet_Pedigree" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Color" Parameter="pet_Color" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Birthday" Parameter="pet_Birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Pet_Growth" Parameter="pet_Growth" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Vaccine_ID" Parameter="vaccine_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Info" Parameter="pet_Info" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Price" Parameter="pet_Price" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pet_Status" Parameter="pet_Status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_Photo" Parameter="pet_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Item" Method="Proc_Add_Item">
+    <Parameter Name="Item_ID" Parameter="item_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Description" Parameter="item_Description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Price" Parameter="item_Price" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Item_Stock" Parameter="item_Stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Item_Availability" Parameter="item_Availability" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Photo" Parameter="item_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Origin" Method="Proc_Add_Origin">
+    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_FirstName" Parameter="origin_FirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_LastName" Parameter="origin_LastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_ContactNumber" Parameter="origin_ContactNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_Email" Parameter="origin_Email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Owner" Method="Proc_Add_Owner">
+    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_FirstName" Parameter="owners_FirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_LastName" Parameter="owners_LastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_ContactNumber" Parameter="owners_ContactNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Owners_Email" Parameter="owners_Email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Pet" Method="Proc_Add_Pet1">
     <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_Type" Parameter="pet_Type" Type="System.String" DbType="VarChar(50)" />
@@ -169,31 +212,6 @@
     <Parameter Name="StaffRole_ID" Parameter="staffRole_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Staff_Status" Parameter="staff_Status" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Staff_Photo" Parameter="staff_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.Proc_Add_Owner" Method="Proc_Add_Owner">
-    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Owners_FirstName" Parameter="owners_FirstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Owners_LastName" Parameter="owners_LastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Owners_ContactNumber" Parameter="owners_ContactNumber" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Owners_Email" Parameter="owners_Email" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.Proc_Add_Origin" Method="Proc_Add_Origin">
-    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Origin_FirstName" Parameter="origin_FirstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Origin_LastName" Parameter="origin_LastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Origin_ContactNumber" Parameter="origin_ContactNumber" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Origin_Email" Parameter="origin_Email" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.Proc_Add_Item" Method="Proc_Add_Item">
-    <Parameter Name="Item_ID" Parameter="item_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Item_Description" Parameter="item_Description" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Item_Price" Parameter="item_Price" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Item_Stock" Parameter="item_Stock" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Item_Availability" Parameter="item_Availability" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Item_Photo" Parameter="item_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
