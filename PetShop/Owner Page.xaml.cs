@@ -25,10 +25,6 @@ namespace PetShop
     {
         PetShopDataContext _PSDC = null;
 
-        public string Owners_FirstName { get; set; }
-        public string Owners_LastName { get; set; }
-        public string FullName => Owners_LastName + ", " + Owners_FirstName;
-
         public Owner_Page()
         {
             InitializeComponent();
@@ -91,6 +87,12 @@ namespace PetShop
 
                 _PSDC.SubmitChanges();
                 MessageBox.Show("Owner information updated successfully.");
+
+                tbOwnerID.Text = null;
+                tbOwnerFName.Text = null;
+                tbOwnerLName.Text = null;
+                tbOwnerContact.Text = null;
+                tbOwnerEmail.Text = null;
             }
             else
             {
@@ -98,16 +100,14 @@ namespace PetShop
             (tbOwnerID.Text, tbOwnerFName.Text, tbOwnerLName.Text, tbOwnerContact.Text, tbOwnerEmail.Text);
 
                 _PSDC.SubmitChanges();
+                MessageBox.Show("Owner information added successfully.");
+
+                tbOwnerID.Text = null;
+                tbOwnerFName.Text = null;
+                tbOwnerLName.Text = null;
+                tbOwnerContact.Text = null;
+                tbOwnerEmail.Text = null;
             }
-        }
-
-        private void UpdateListView()
-        {
-            // Assuming Owners is the class representing your Owners table
-            var owners = _PSDC.Owners.ToList();
-
-            lbOwners.ItemsSource = owners;
-            lbOwners.DisplayMemberPath = "FullName"; // Display the last name in the ListBox
         }
 
         private void btViewing_Click(object sender, RoutedEventArgs e)
@@ -116,6 +116,12 @@ namespace PetShop
                             select owners.Owners_LastName + ", " + owners.Owners_FirstName;
 
             lbOwners.ItemsSource = OwnerData.ToList();
+
+            tbOwnerID.Text = null;
+            tbOwnerFName.Text = null;
+            tbOwnerLName.Text = null;
+            tbOwnerContact.Text = null;
+            tbOwnerEmail.Text = null;
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)

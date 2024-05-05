@@ -35,7 +35,9 @@ namespace PetShop
 
         private void btPet_Click(object sender, RoutedEventArgs e)
         {
-
+            Pet_Page PtP = new Pet_Page();
+            PtP.Show();
+            this.Close();
         }
 
         private void btOwner_Click(object sender, RoutedEventArgs e)
@@ -49,6 +51,27 @@ namespace PetShop
         {
             Origin_Page OrP = new Origin_Page();
             OrP.Show();
+            this.Close();
+        }
+
+        private void btStaff_Click(object sender, RoutedEventArgs e)
+        {
+            Staff_Page SP = new Staff_Page();
+            SP.Show();
+            this.Close();
+        }
+
+        private void btItems_Click(object sender, RoutedEventArgs e)
+        {
+            Item_Page IP = new Item_Page();
+            IP.Show();
+            this.Close();
+        }
+
+        private void btPurchase_Click(object sender, RoutedEventArgs e)
+        {
+            Purchase_Page PP = new Purchase_Page();
+            PP.Show();
             this.Close();
         }
     }

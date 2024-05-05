@@ -10,14 +10,14 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="888,350,90,207" FontSize="48" BorderBrush="Black" FontFamily="Britannic Bold"/>
+        <ListBox x:Name="lbOrigins" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="888,350,90,207" FontSize="48" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbOrigins_SelectionChanged"/>
         <Label Content="Origin" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="64" Margin="1045,263,0,0" VerticalAlignment="Top" Width="163" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="1318,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/home.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Viewing.png"/>
             </Button.Background>
@@ -27,21 +27,16 @@
         <Label Content="Origin's Last Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,616,0,0" VerticalAlignment="Top" Height="48" Width="321" FontSize="36" FontFamily="Britannic Bold"/>
         <Label Content="Origin's Contact #:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,669,0,0" VerticalAlignment="Top" Height="47" Width="314" FontSize="36" FontFamily="Britannic Bold"/>
         <Label Content="Origin's Email:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,721,0,0" VerticalAlignment="Top" Height="45" Width="242" FontSize="36" FontFamily="Britannic Bold"/>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="344,412,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnUpload_Click"/>
-        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="344,312,0,0" VerticalAlignment="Top" Height="76" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnRemove_Click"/>
         <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="46" Margin="303,510,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="559" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOriginFName" HorizontalAlignment="Left" Height="46" Margin="456,563,0,0" TextWrapping="Wrap" Text="Origin's First Name" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOriginLName" HorizontalAlignment="Left" Height="46" Margin="456,617,0,0" TextWrapping="Wrap" Text="Origin's Last Name" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOriginContact" HorizontalAlignment="Left" Height="46" Margin="456,670,0,0" TextWrapping="Wrap" Text="Origin's Contact #" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <TextBox x:Name="tbOriginEmail" HorizontalAlignment="Left" Height="46" Margin="373,721,0,0" TextWrapping="Wrap" Text="Origin's Email" VerticalAlignment="Top" Width="489" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold"/>
-        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1057,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="349" Margin="512,138,0,0" VerticalAlignment="Top" Width="350">
-            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350"/>
-        </Border>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Image x:Name="imagePicture" Margin="514,140,580,490"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnSave_Click"/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1057,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
         <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="59" Margin="31,131,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="59" Margin="31,29,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="755,180,0,0" VerticalAlignment="Top" Height="49" Width="128" FontSize="36" FontFamily="Britannic Bold"/>
     </Grid>
 </Window>

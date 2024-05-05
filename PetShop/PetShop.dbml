@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pet Shop Database" Class="PetShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CCL01-19\MSSQLSERVER1;Initial Catalog=&quot;Pet Shop Database&quot;;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="PetShop.Properties.Settings" SettingsPropertyName="Pet_Shop_DatabaseConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pet-Shop-Database" Class="PetShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-ETCNUFV\SQLEXPRESS;Initial Catalog=Pet-Shop-Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="PetShop.Properties.Settings" SettingsPropertyName="Pet_Shop_DatabaseConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Account" Member="Accounts">
     <Type Name="Account">
       <Column Name="Account_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -15,7 +15,7 @@
       <Column Name="Item_Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Item_Stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Item_Availability" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Item_Photo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Item_Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Item_Log" Member="Logs" ThisKey="Item_ID" OtherKey="Item_ID" Type="Log" />
       <Association Name="Item_Purchase" Member="Purchases" ThisKey="Item_ID" OtherKey="Item_ID" Type="Purchase" />
     </Type>
@@ -78,7 +78,7 @@
       <Column Name="Pet_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Origin_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Owners_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Pet_Photo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Pet_Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Pet_Log" Member="Logs" ThisKey="Pet_ID" OtherKey="Pet_ID" Type="Log" />
       <Association Name="Pet_Purchase" Member="Purchases" ThisKey="Pet_ID" OtherKey="Pet_ID" Type="Purchase" />
       <Association Name="Origin_Pet" Member="Origin" ThisKey="Origin_ID" OtherKey="Origin_ID" Type="Origin" IsForeignKey="true" />
@@ -111,7 +111,7 @@
       <Column Name="Staff_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="StaffRole_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Staff_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Staff_Photo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Staff_Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Staff_Log" Member="Logs" ThisKey="Staff_ID" OtherKey="Staff_ID" Type="Log" />
       <Association Name="Staff_Purchase" Member="Purchases" ThisKey="Staff_ID" OtherKey="Staff_ID" Type="Purchase" />
       <Association Name="StaffRole_Staff" Member="StaffRole" ThisKey="StaffRole_ID" OtherKey="StaffRole_ID" Type="StaffRole" IsForeignKey="true" />
@@ -132,7 +132,7 @@
       <Association Name="Vaccine_Pet" Member="Pets" ThisKey="Vaccine_ID" OtherKey="Vaccine_ID" Type="Pet" />
     </Type>
   </Table>
-  <Function Name="dbo.[Proc Add_Pet]" Method="Proc_Add_Pet">
+  <Function Name="dbo.Proc_Add_Pet" Method="Proc_Add_Pet">
     <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_Type" Parameter="pet_Type" Type="System.String" DbType="VarChar(50)" />
@@ -147,7 +147,28 @@
     <Parameter Name="Pet_Status" Parameter="pet_Status" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Photo" Parameter="pet_Photo" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Pet_Photo" Parameter="pet_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Purchase" Method="Proc_Add_Purchase">
+    <Parameter Name="Purchase_ID" Parameter="purchase_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_ID" Parameter="item_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Quantity" Parameter="item_Quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Purchase_Total" Parameter="purchase_Total" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Purchase_Date" Parameter="purchase_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Customer_Number" Parameter="customer_Number" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Staff_ID" Parameter="staff_ID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Staff" Method="Proc_Add_Staff">
+    <Parameter Name="Staff_ID" Parameter="staff_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Staff_FirstName" Parameter="staff_FirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Staff_LastName" Parameter="staff_LastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="StaffRole_ID" Parameter="staffRole_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Staff_Status" Parameter="staff_Status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Staff_Photo" Parameter="staff_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.Proc_Add_Owner" Method="Proc_Add_Owner">
@@ -156,6 +177,23 @@
     <Parameter Name="Owners_LastName" Parameter="owners_LastName" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Owners_ContactNumber" Parameter="owners_ContactNumber" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Owners_Email" Parameter="owners_Email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Origin" Method="Proc_Add_Origin">
+    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_FirstName" Parameter="origin_FirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_LastName" Parameter="origin_LastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_ContactNumber" Parameter="origin_ContactNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Origin_Email" Parameter="origin_Email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_Add_Item" Method="Proc_Add_Item">
+    <Parameter Name="Item_ID" Parameter="item_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Description" Parameter="item_Description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Price" Parameter="item_Price" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Item_Stock" Parameter="item_Stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Item_Availability" Parameter="item_Availability" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Item_Photo" Parameter="item_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

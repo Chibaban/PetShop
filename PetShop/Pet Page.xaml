@@ -10,38 +10,65 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="888,350,90,207" FontSize="48" BorderBrush="Black" FontFamily="Britannic Bold"/>
-        <Label Content="Owner" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="64" Margin="1045,263,0,0" VerticalAlignment="Top" Width="163" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <ListBox x:Name="lbPets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="1084,348,58,209" FontSize="35" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbStaffs_SelectionChanged"/>
+        <Label Content="Pets" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="64" Margin="1151,258,0,0" VerticalAlignment="Top" Width="164" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="1318,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/home.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Viewing.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Owner ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,507,0,0" VerticalAlignment="Top" Height="49" Width="172" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's First Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,561,0,0" VerticalAlignment="Top" Height="50" Width="330" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Last Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,616,0,0" VerticalAlignment="Top" Height="48" Width="321" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Contact #:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,669,0,0" VerticalAlignment="Top" Height="47" Width="314" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Email:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,721,0,0" VerticalAlignment="Top" Height="45" Width="242" FontSize="36" FontFamily="Britannic Bold"/>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="344,412,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnUpload_Click"/>
-        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="344,312,0,0" VerticalAlignment="Top" Height="76" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnRemove_Click"/>
-        <TextBox x:Name="tbOwnerID" HorizontalAlignment="Left" Height="46" Margin="303,510,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="559" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerFName" HorizontalAlignment="Left" Height="46" Margin="456,563,0,0" TextWrapping="Wrap" Text="Owner's First Name" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerLName" HorizontalAlignment="Left" Height="46" Margin="456,617,0,0" TextWrapping="Wrap" Text="Owner's Last Name" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerContact" HorizontalAlignment="Left" Height="46" Margin="456,670,0,0" TextWrapping="Wrap" Text="Owner's Contact #" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Left" Height="46" Margin="373,721,0,0" TextWrapping="Wrap" Text="Owner's Email" VerticalAlignment="Top" Width="489" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold"/>
-        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1057,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="349" Margin="512,138,0,0" VerticalAlignment="Top" Width="350">
-            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350"/>
-        </Border>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Image x:Name="imagePicture" Margin="514,140,580,490"/>
-        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="59" Margin="31,131,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Pet Color:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="583,365,0,0" VerticalAlignment="Top" Height="32" Width="114" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Birthday:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="558,401,0,0" VerticalAlignment="Top" Height="32" Width="141" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Growth:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="558,437,0,0" VerticalAlignment="Top" Height="32" Width="134" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Vaccine ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="565,0,0,0" VerticalAlignment="Center" Height="37" Width="129" FontSize="24" FontFamily="Britannic Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.215"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Pet Info:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="574,500,0,0" VerticalAlignment="Top" Height="32" Width="109" FontSize="24" FontFamily="Britannic Bold" RenderTransformOrigin="0.563,0.356"/>
+        <TextBox x:Name="tbPetColor" HorizontalAlignment="Left" Height="26" Margin="719,368,0,0" TextWrapping="Wrap" Text="Color of the Pet" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbPetBirthday" HorizontalAlignment="Left" Height="29" Margin="719,399,0,0" TextWrapping="Wrap" Text="Birthday of Pet" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbPetGrowth" HorizontalAlignment="Left" Height="30" Margin="719,434,0,0" TextWrapping="Wrap" Text="Young, Adult or Senior" VerticalAlignment="Top" Width="250" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" RenderTransformOrigin="0.202,-0.76"/>
+        <TextBox x:Name="tbPetVaccine" HorizontalAlignment="Left" Height="28" Margin="719,469,0,0" TextWrapping="Wrap" Text="Vaccination of Pet" VerticalAlignment="Top" Width="250" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" RenderTransformOrigin="0.424,-1.043"/>
+        <TextBox x:Name="tbPetInfo" HorizontalAlignment="Left" Height="28" Margin="719,502,0,0" TextWrapping="Wrap" Text="Pet's Info" VerticalAlignment="Top" Width="248" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="684,739,0,0" VerticalAlignment="Top" Height="74" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnSave_Click"/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1172,804,0,0" VerticalAlignment="Top" Height="75" Width="140" FontSize="36" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="1036,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="394" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
+        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="59" Margin="31,114,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="59" Margin="31,29,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="903,193,0,0" VerticalAlignment="Top" Height="49" Width="128" FontSize="36" FontFamily="Britannic Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="349" Margin="117,203,0,0" VerticalAlignment="Top" Width="350">
+            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
+        </Border>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="201,565,0,0" VerticalAlignment="Top" Height="40" Width="182" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
+        <Image x:Name="imagePicture" Margin="118,203,974,422"/>
+        <Label Content="Pet ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="101,656,0,0" VerticalAlignment="Top" Height="49" Width="124" FontSize="36" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="57,710,0,0" VerticalAlignment="Top" Height="50" Width="176" FontSize="36" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Type:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="81,765,0,0" VerticalAlignment="Top" Height="48" Width="152" FontSize="36" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Sex:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="92,818,0,0" VerticalAlignment="Top" Height="47" Width="141" FontSize="36" FontFamily="Britannic Bold"/>
+        <Label Content="Pet Pedigree:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="11,870,0,0" VerticalAlignment="Top" Height="45" Width="231" FontSize="36" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbPetID" HorizontalAlignment="Left" Height="46" Margin="233,658,0,0" TextWrapping="Wrap" Text="Pet ID" VerticalAlignment="Top" Width="275" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbPetName" HorizontalAlignment="Left" Height="46" Margin="232,714,0,0" TextWrapping="Wrap" Text="Name of Pet" VerticalAlignment="Top" Width="276" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbPetType" HorizontalAlignment="Left" Height="46" Margin="233,767,0,0" TextWrapping="Wrap" Text="Cat or Dog" VerticalAlignment="Top" Width="275" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" RenderTransformOrigin="0.202,-0.76"/>
+        <TextBox x:Name="tbPetSex" HorizontalAlignment="Left" Height="46" Margin="232,818,0,0" TextWrapping="Wrap" Text="Male or Female" VerticalAlignment="Top" Width="276" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" RenderTransformOrigin="0.424,-1.043"/>
+        <TextBox x:Name="tbPetPedigree" HorizontalAlignment="Left" Height="46" Margin="232,870,0,0" TextWrapping="Wrap" Text="Pet Breed" VerticalAlignment="Top" Width="276" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Label Content="Pet Price:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="575,522,0,0" VerticalAlignment="Top" Height="35" Width="117" FontSize="24" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbPetPrice" HorizontalAlignment="Left" Height="28" Margin="719,535,0,0" TextWrapping="Wrap" Text="Pet's Price" VerticalAlignment="Top" Width="248" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Label Content="Pet Status:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="558,554,0,0" VerticalAlignment="Top" Height="37" Width="120" FontSize="24" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbPetStatus" HorizontalAlignment="Left" Height="28" Margin="719,563,0,0" TextWrapping="Wrap" Text="Sold or Available" VerticalAlignment="Top" Width="248" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Label Content="Origin ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="565,586,0,0" VerticalAlignment="Top" Height="39" Width="127" FontSize="24" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="34" Margin="719,596,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="248" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Label Content="Owner's ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="551,627,0,0" VerticalAlignment="Top" Height="36" Width="134" FontSize="24" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="28" Margin="719,635,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="248" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
     </Grid>
 </Window>

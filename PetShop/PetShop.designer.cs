@@ -22,7 +22,7 @@ namespace PetShop
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Pet Shop Database")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Pet-Shop-Database")]
 	public partial class PetShopDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -63,7 +63,7 @@ namespace PetShop
     #endregion
 		
 		public PetShopDataContext() : 
-				base(global::PetShop.Properties.Settings.Default.Pet_Shop_DatabaseConnectionString1, mappingSource)
+				base(global::PetShop.Properties.Settings.Default.Pet_Shop_DatabaseConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -172,10 +172,24 @@ namespace PetShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[Proc Add_Pet]")]
-		public int Proc_Add_Pet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_ID", DbType="VarChar(50)")] string pet_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Name", DbType="VarChar(50)")] string pet_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Type", DbType="VarChar(50)")] string pet_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Sex", DbType="VarChar(50)")] string pet_Sex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Pedigree", DbType="VarChar(50)")] string pet_Pedigree, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Color", DbType="VarChar(50)")] string pet_Color, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Birthday", DbType="Date")] System.Nullable<System.DateTime> pet_Birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Growth", DbType="VarChar(50)")] string pet_Growth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Vaccine_ID", DbType="VarChar(50)")] string vaccine_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Info", DbType="VarChar(50)")] string pet_Info, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Price", DbType="Int")] System.Nullable<int> pet_Price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Status", DbType="VarChar(50)")] string pet_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_ID", DbType="VarChar(50)")] string origin_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ID", DbType="VarChar(50)")] string owners_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Photo", DbType="VarChar(255)")] string pet_Photo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Proc_Add_Pet")]
+		public int Proc_Add_Pet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_ID", DbType="VarChar(50)")] string pet_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Name", DbType="VarChar(50)")] string pet_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Type", DbType="VarChar(50)")] string pet_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Sex", DbType="VarChar(50)")] string pet_Sex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Pedigree", DbType="VarChar(50)")] string pet_Pedigree, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Color", DbType="VarChar(50)")] string pet_Color, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Birthday", DbType="Date")] System.Nullable<System.DateTime> pet_Birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Growth", DbType="VarChar(50)")] string pet_Growth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Vaccine_ID", DbType="VarChar(50)")] string vaccine_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Info", DbType="VarChar(50)")] string pet_Info, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Price", DbType="Int")] System.Nullable<int> pet_Price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Status", DbType="VarChar(50)")] string pet_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_ID", DbType="VarChar(50)")] string origin_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ID", DbType="VarChar(50)")] string owners_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Photo", DbType="Image")] System.Data.Linq.Binary pet_Photo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pet_ID, pet_Name, pet_Type, pet_Sex, pet_Pedigree, pet_Color, pet_Birthday, pet_Growth, vaccine_ID, pet_Info, pet_Price, pet_Status, origin_ID, owners_ID, pet_Photo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Proc_Add_Purchase")]
+		public int Proc_Add_Purchase([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Purchase_ID", DbType="VarChar(50)")] string purchase_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_ID", DbType="VarChar(50)")] string pet_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_ID", DbType="VarChar(50)")] string item_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Quantity", DbType="Int")] System.Nullable<int> item_Quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Purchase_Total", DbType="Int")] System.Nullable<int> purchase_Total, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Purchase_Date", DbType="Date")] System.Nullable<System.DateTime> purchase_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ID", DbType="VarChar(50)")] string owners_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Customer_Number", DbType="VarChar(50)")] string customer_Number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_ID", DbType="VarChar(50)")] string staff_ID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), purchase_ID, pet_ID, item_ID, item_Quantity, purchase_Total, purchase_Date, owners_ID, customer_Number, staff_ID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Proc_Add_Staff")]
+		public int Proc_Add_Staff([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_ID", DbType="VarChar(50)")] string staff_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_FirstName", DbType="VarChar(50)")] string staff_FirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_LastName", DbType="VarChar(50)")] string staff_LastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StaffRole_ID", DbType="VarChar(50)")] string staffRole_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_Status", DbType="VarChar(50)")] string staff_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Staff_Photo", DbType="Image")] System.Data.Linq.Binary staff_Photo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), staff_ID, staff_FirstName, staff_LastName, staffRole_ID, staff_Status, staff_Photo);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -183,6 +197,20 @@ namespace PetShop
 		public int Proc_Add_Owner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ID", DbType="VarChar(50)")] string owners_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_FirstName", DbType="VarChar(50)")] string owners_FirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_LastName", DbType="VarChar(50)")] string owners_LastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ContactNumber", DbType="VarChar(50)")] string owners_ContactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_Email", DbType="VarChar(50)")] string owners_Email)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), owners_ID, owners_FirstName, owners_LastName, owners_ContactNumber, owners_Email);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Proc_Add_Origin")]
+		public int Proc_Add_Origin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_ID", DbType="VarChar(50)")] string origin_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_FirstName", DbType="VarChar(50)")] string origin_FirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_LastName", DbType="VarChar(50)")] string origin_LastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_ContactNumber", DbType="VarChar(50)")] string origin_ContactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_Email", DbType="VarChar(50)")] string origin_Email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), origin_ID, origin_FirstName, origin_LastName, origin_ContactNumber, origin_Email);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Proc_Add_Item")]
+		public int Proc_Add_Item([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_ID", DbType="VarChar(50)")] string item_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Description", DbType="VarChar(50)")] string item_Description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Price", DbType="Int")] System.Nullable<int> item_Price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Stock", DbType="Int")] System.Nullable<int> item_Stock, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Availability", DbType="VarChar(50)")] string item_Availability, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Item_Photo", DbType="Image")] System.Data.Linq.Binary item_Photo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), item_ID, item_Description, item_Price, item_Stock, item_Availability, item_Photo);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -354,7 +382,7 @@ namespace PetShop
 		
 		private string _Item_Availability;
 		
-		private string _Item_Photo;
+		private System.Data.Linq.Binary _Item_Photo;
 		
 		private EntitySet<Log> _Logs;
 		
@@ -374,7 +402,7 @@ namespace PetShop
     partial void OnItem_StockChanged();
     partial void OnItem_AvailabilityChanging(string value);
     partial void OnItem_AvailabilityChanged();
-    partial void OnItem_PhotoChanging(string value);
+    partial void OnItem_PhotoChanging(System.Data.Linq.Binary value);
     partial void OnItem_PhotoChanged();
     #endregion
 		
@@ -485,8 +513,8 @@ namespace PetShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Photo", DbType="VarChar(255)")]
-		public string Item_Photo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Photo", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Item_Photo
 		{
 			get
 			{
@@ -1566,7 +1594,7 @@ namespace PetShop
 		
 		private string _Owners_ID;
 		
-		private string _Pet_Photo;
+		private System.Data.Linq.Binary _Pet_Photo;
 		
 		private EntitySet<Log> _Logs;
 		
@@ -1610,7 +1638,7 @@ namespace PetShop
     partial void OnOrigin_IDChanged();
     partial void OnOwners_IDChanging(string value);
     partial void OnOwners_IDChanged();
-    partial void OnPet_PhotoChanging(string value);
+    partial void OnPet_PhotoChanging(System.Data.Linq.Binary value);
     partial void OnPet_PhotoChanged();
     #endregion
 		
@@ -1916,8 +1944,8 @@ namespace PetShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Photo", DbType="VarChar(255)")]
-		public string Pet_Photo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Photo", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Pet_Photo
 		{
 			get
 			{
@@ -2571,7 +2599,7 @@ namespace PetShop
 		
 		private string _Staff_Status;
 		
-		private string _Staff_Photo;
+		private System.Data.Linq.Binary _Staff_Photo;
 		
 		private EntitySet<Log> _Logs;
 		
@@ -2593,7 +2621,7 @@ namespace PetShop
     partial void OnStaffRole_IDChanged();
     partial void OnStaff_StatusChanging(string value);
     partial void OnStaff_StatusChanged();
-    partial void OnStaff_PhotoChanging(string value);
+    partial void OnStaff_PhotoChanging(System.Data.Linq.Binary value);
     partial void OnStaff_PhotoChanged();
     #endregion
 		
@@ -2709,8 +2737,8 @@ namespace PetShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Photo", DbType="VarChar(255)")]
-		public string Staff_Photo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Photo", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Staff_Photo
 		{
 			get
 			{

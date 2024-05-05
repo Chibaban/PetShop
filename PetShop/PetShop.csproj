@@ -56,7 +56,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Item Page.xaml.cs">
+      <DependentUpon>Item Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase Page.xaml.cs">
+      <DependentUpon>Purchase Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Page.xaml.cs">
+      <DependentUpon>Staff Page.xaml</DependentUpon>
+    </Compile>
     <Page Include="Home Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Item Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,6 +97,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pet Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Purchase Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Staff Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Viewing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Staff DP.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
