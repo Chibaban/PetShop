@@ -184,7 +184,7 @@ namespace PetShop
                 }
 
                 _PSDC.SubmitChanges();
-                MessageBox.Show("Item information updated successfully.");
+                MessageBox.Show("Pet information updated successfully.");
 
                 tbPetID.Text = null;
                 tbPetName.Text = null;
@@ -201,19 +201,26 @@ namespace PetShop
                 tbOriginID.Text = null;
                 tbOwnersID.Text = null;
 
+                lbPets.ItemsSource = null;
+
                 imagePicture.Source = null;
 
                 btnUpload.IsEnabled = false;
             }
             else
             {
-                _PSDC.Proc_Add_Pet
+                if (tbOwnersID.Text == null)
+                {
+                    tbOwnersID.Text = "";
+                }
+
+                    _PSDC.Proc_Add_Pet
             (tbPetID.Text, tbPetName.Text, tbPetType.Text, tbPetSex.Text, tbPetPedigree.Text, tbPetColor.Text, DateTime.Parse(tbPetBirthday.Text),
             tbPetGrowth.Text, tbPetVaccine.Text, tbPetInfo.Text, int.Parse(tbPetPrice.Text), tbPetStatus.Text, tbOriginID.Text, tbOwnersID.Text, 
             ConvertImageToByteArray(imagePicture));
 
                 _PSDC.SubmitChanges();
-                MessageBox.Show("Item information added successfully.");
+                MessageBox.Show("Pet information added successfully.");
 
                 tbPetID.Text = null;
                 tbPetName.Text = null;
