@@ -5,43 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
         mc:Ignorable="d"
-        Title="Item_Page" Height="990" Width="1440" Background="#FF8A8A8A">
+        Title="Item_Page" Height="720" Width="980" Background="#FF8A8A8A">
     <Grid>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <ListBox x:Name="lbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="888,350,90,207" FontSize="48" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbItems_SelectionChanged"/>
-        <Label Content="Items" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="64" Margin="1045,263,0,0" VerticalAlignment="Top" Width="163" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="1318,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
+        <ListBox x:Name="lbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="568,265,74,144" FontSize="24" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbItems_SelectionChanged"/>
+        <Label Content="Iteyms" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="702,210,0,0" VerticalAlignment="Top" Width="82" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="97,116,0,0" VerticalAlignment="Top" Height="72" Width="74" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/home.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="1195,23,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btViewing_Click">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="560,100,0,0" VerticalAlignment="Top" Height="70" Width="74" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Viewing.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Item ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,507,0,0" VerticalAlignment="Top" Height="49" Width="172" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Item Description:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,561,0,0" VerticalAlignment="Top" Height="50" Width="330" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Item Price:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="190,616,0,0" VerticalAlignment="Top" Height="48" Width="183" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="# of Stock:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="194,670,0,0" VerticalAlignment="Top" Height="47" Width="185" FontSize="36" FontFamily="Britannic Bold"/>
-        <Label Content="Item's Availability:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="80,722,0,0" VerticalAlignment="Top" Height="45" Width="293" FontSize="36" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbItemID" HorizontalAlignment="Left" Height="46" Margin="303,510,0,0" TextWrapping="Wrap" Text="Item ID" VerticalAlignment="Top" Width="559" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemDesc" HorizontalAlignment="Left" Height="46" Margin="456,563,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemPrice" HorizontalAlignment="Left" Height="46" Margin="456,617,0,0" TextWrapping="Wrap" Text="Item's Price" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemStock" HorizontalAlignment="Left" Height="46" Margin="456,670,0,0" TextWrapping="Wrap" Text="Item Stock" VerticalAlignment="Top" Width="406" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemAvail" HorizontalAlignment="Left" Height="46" Margin="373,721,0,0" TextWrapping="Wrap" Text="In/Out of Stock" VerticalAlignment="Top" Width="489" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="548,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnSave_Click"/>
-        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="1057,816,0,0" VerticalAlignment="Top" Height="75" Width="139" FontSize="36" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="46" Margin="888,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="462" FontSize="36" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
-        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="59" Margin="31,131,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="59" Margin="31,29,0,0" VerticalAlignment="Top" Width="280" FontSize="48" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="755,180,0,0" VerticalAlignment="Top" Height="49" Width="128" FontSize="36" FontFamily="Britannic Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="349" Margin="376,138,0,0" VerticalAlignment="Top" Width="350">
-            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350"/>
+        <Label Content="Item ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="166,369,0,0" VerticalAlignment="Top" Height="38" Width="94" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Item Description:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="70,408,0,0" VerticalAlignment="Top" Height="38" Width="196" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Item Price:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="138,448,0,0" VerticalAlignment="Top" Height="38" Width="124" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="# of Stock:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="134,486,0,0" VerticalAlignment="Top" Height="38" Width="128" FontSize="24" FontFamily="Britannic Bold"/>
+        <Label Content="Item's Availability:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="64,522,0,0" VerticalAlignment="Top" Height="38" Width="198" FontSize="24" FontFamily="Britannic Bold"/>
+        <TextBox x:Name="tbItemID" HorizontalAlignment="Left" Height="31" Margin="264,372,0,0" TextWrapping="Wrap" Text="Item ID" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbItemDesc" HorizontalAlignment="Left" Height="31" Margin="264,412,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbItemPrice" HorizontalAlignment="Left" Height="31" Margin="264,451,0,0" TextWrapping="Wrap" Text="Item's Price" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbItemStock" HorizontalAlignment="Left" Height="31" Margin="264,490,0,0" TextWrapping="Wrap" Text="Item Stock" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <TextBox x:Name="tbItemAvail" HorizontalAlignment="Left" Height="31" Margin="264,529,0,0" TextWrapping="Wrap" Text="In/Out of Stock" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
+        <Button x:Name="btnSave" Content="Sayve" HorizontalAlignment="Left" Margin="286,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnSave_Click"/>
+        <Button x:Name="btnCreate" Content="Cryeate" HorizontalAlignment="Left" Margin="652,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="31" Margin="616,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
+        <Label Content="Labely" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="34,271,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Adminy" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="86,220,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Seyarch:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="510,41,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Britannic Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="276,60,0,0" VerticalAlignment="Top" Width="208">
+            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
         </Border>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="178,412,0,0" VerticalAlignment="Top" Height="75" Width="138" FontSize="36" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
-        <Image x:Name="imagePicture" Margin="376,138,716,490"/>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="276,295,0,0" VerticalAlignment="Top" Height="34" Width="208" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
+        <Image x:Name="imagePicture" Margin="278,61,496,438"/>
+        <RadioButton x:Name="InStock" Content="In Stock" HorizontalAlignment="Left" Margin="702,114,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="InStock_Checked"/>
+        <RadioButton x:Name="OutOfStock" Content="Out Of Stock" HorizontalAlignment="Left" Margin="702,145,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="OutOfStock_Checked"/>
     </Grid>
 </Window>

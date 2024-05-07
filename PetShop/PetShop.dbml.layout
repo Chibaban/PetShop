@@ -20,7 +20,7 @@
         <elementListCompartment Id="805e146f-4ea4-48d3-b12f-f9e95adeacc9" absoluteBounds="8.015, 6.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.53125 : 6.3381982421875); (11.53125 : 6.96357590494792); (11.1927058333333 : 6.96357590494792 : JumpStart); (11.0260391666667 : 6.96357590494792 : JumpEnd); (10 : 6.96357590494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.53125 : 6.3381982421875); (11.53125 : 6.96357590494792); (10 : 6.96357590494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Item/Item_Log" />
       <nodes>
         <classShapeMoniker Id="660d57ef-14c1-4611-b788-33b00b77aad8" />
@@ -33,7 +33,7 @@
         <elementListCompartment Id="24ec2337-e2c8-4cf2-9d58-9114afed51a8" absoluteBounds="13.515, 5.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(14.75 : 6.39589680989583); (14.75 : 6.75786135742187); (14.6458308333333 : 6.75786135742187 : JumpStart); (14.4791641666667 : 6.75786135742187 : JumpEnd); (13.3958358333333 : 6.75786135742187 : JumpStart); (13.2291691666667 : 6.75786135742187 : JumpEnd); (13.2083333333333 : 6.75786135742187 : JumpStart); (13.0416666666667 : 6.75786135742187 : JumpEnd); (11.6145833333333 : 6.75786135742187 : JumpStart); (11.4479166666667 : 6.75786135742187 : JumpEnd); (11.1927058333333 : 6.75786135742187 : JumpStart); (11.0260391666667 : 6.75786135742187 : JumpEnd); (10 : 6.75786135742187)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.75 : 6.39589680989583); (14.75 : 6.75786135742187); (14.6458308333333 : 6.75786135742187 : JumpStart); (14.4791641666667 : 6.75786135742187 : JumpEnd); (13.2083333333333 : 6.75786135742187 : JumpStart); (13.0416666666667 : 6.75786135742187 : JumpEnd); (11.6145833333333 : 6.75786135742187 : JumpStart); (11.4479166666667 : 6.75786135742187 : JumpEnd); (10 : 6.75786135742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Origin/Origin_Log" />
       <nodes>
         <classShapeMoniker Id="d3df7562-2bc9-4eab-926d-2d3740b77697" />
@@ -46,7 +46,7 @@
         <elementListCompartment Id="2fe7c97a-ed27-42b3-a6ec-76dd270b42ea" absoluteBounds="16.015, 5.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(16 : 6.55214680989583); (14.8333333333333 : 6.55214680989583 : JumpStart); (14.6666666666667 : 6.55214680989583 : JumpEnd); (14.6458308333333 : 6.55214680989583 : JumpStart); (14.4791641666667 : 6.55214680989583 : JumpEnd); (13.3958358333333 : 6.55214680989583 : JumpStart); (13.2291691666667 : 6.55214680989583 : JumpEnd); (11.6145833333333 : 6.55214680989583 : JumpStart); (11.4479166666667 : 6.55214680989583 : JumpEnd); (11.1927058333333 : 6.55214680989583 : JumpStart); (11.0260391666667 : 6.55214680989583 : JumpEnd); (10 : 6.55214680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16 : 6.55214680989583); (14.6458308333333 : 6.55214680989583 : JumpStart); (14.4791641666667 : 6.55214680989583 : JumpEnd); (11.6145833333333 : 6.55214680989583 : JumpStart); (11.4479166666667 : 6.55214680989583 : JumpEnd); (10 : 6.55214680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Owner/Owner_Log" />
       <nodes>
         <classShapeMoniker Id="92e7c1c7-cd01-443c-bac3-9f9aaedadcf5" />
@@ -59,21 +59,21 @@
         <elementListCompartment Id="81f69372-449a-475f-a22f-349fa0ecb297" absoluteBounds="15.14, 7.71, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(15.125 : 7.28125); (14.6458308333333 : 7.28125 : JumpStart); (14.4791641666667 : 7.28125 : JumpEnd); (13.3958358333333 : 7.28125 : JumpStart); (13.2291691666667 : 7.28125 : JumpEnd); (13.2083333333333 : 7.28125 : JumpStart); (13.0416666666667 : 7.28125 : JumpEnd); (11.1927058333333 : 7.28125 : JumpStart); (11.0260391666667 : 7.28125 : JumpEnd); (10 : 7.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(15.125 : 7.28125); (14.6458308333333 : 7.28125 : JumpStart); (14.4791641666667 : 7.28125 : JumpEnd); (13.2083333333333 : 7.28125 : JumpStart); (13.0416666666667 : 7.28125 : JumpEnd); (10 : 7.28125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Pet/Pet_Log" />
       <nodes>
         <classShapeMoniker Id="a6e565ee-de87-4687-bdf5-a4204bfa1a07" />
         <classShapeMoniker Id="a6b9a5bf-6b37-4dc1-8ccd-081d38afa731" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(14.5624975 : 6.39589680989583); (14.5624975 : 10.4607568359375); (15.125 : 10.4607568359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.5624975 : 6.39589680989583); (14.5624975 : 10.4607568359375); (15.125 : 10.4607568359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Origin/Origin_Pet" />
       <nodes>
         <classShapeMoniker Id="d3df7562-2bc9-4eab-926d-2d3740b77697" />
         <classShapeMoniker Id="a6e565ee-de87-4687-bdf5-a4204bfa1a07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(16.5625 : 6.64589680989583); (16.5625 : 7.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16.5625 : 6.64589680989583); (16.5625 : 7.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Owner/Owner_Pet" />
       <nodes>
         <classShapeMoniker Id="92e7c1c7-cd01-443c-bac3-9f9aaedadcf5" />
@@ -86,28 +86,28 @@
         <elementListCompartment Id="bda1e10b-f23f-42fe-990b-c3282dd30ae3" absoluteBounds="12.39, 7.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.375 : 7.95755126953125); (11.1927058333333 : 7.95755126953125 : JumpStart); (11.0260391666667 : 7.95755126953125 : JumpEnd); (10 : 7.95755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.375 : 7.95755126953125); (10 : 7.95755126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Purchase/Purchase_Log" />
       <nodes>
         <classShapeMoniker Id="25e377b3-f503-484b-a581-cd2b50ea2926" />
         <classShapeMoniker Id="a6b9a5bf-6b37-4dc1-8ccd-081d38afa731" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.1093725 : 6.3381982421875); (11.1093725 : 8.96757940429687); (12.375 : 8.96757940429687)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.1093725 : 6.3381982421875); (11.1093725 : 8.96757940429687); (12.375 : 8.96757940429687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Item/Item_Purchase" />
       <nodes>
         <classShapeMoniker Id="660d57ef-14c1-4611-b788-33b00b77aad8" />
         <classShapeMoniker Id="25e377b3-f503-484b-a581-cd2b50ea2926" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(16 : 6.58339930989583); (14.8333333333333 : 6.58339930989583 : JumpStart); (14.6666666666667 : 6.58339930989583 : JumpEnd); (14.6458308333333 : 6.58339930989583 : JumpStart); (14.4791641666667 : 6.58339930989583 : JumpEnd); (13.3958358333333 : 6.58339930989583 : JumpStart); (13.2291691666667 : 6.58339930989583 : JumpEnd); (13.125 : 6.58339930989583); (13.125 : 7.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16 : 6.58339930989583); (14.6458308333333 : 6.58339930989583 : JumpStart); (14.4791641666667 : 6.58339930989583 : JumpEnd); (13.125 : 6.58339930989583); (13.125 : 7.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Owner/Owner_Purchase" />
       <nodes>
         <classShapeMoniker Id="92e7c1c7-cd01-443c-bac3-9f9aaedadcf5" />
         <classShapeMoniker Id="25e377b3-f503-484b-a581-cd2b50ea2926" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(15.125 : 8.64505126953125); (14.6458308333333 : 8.64505126953125 : JumpStart); (14.4791641666667 : 8.64505126953125 : JumpEnd); (14.375 : 8.64505126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(15.125 : 8.64505126953125); (14.6458308333333 : 8.64505126953125 : JumpStart); (14.4791641666667 : 8.64505126953125 : JumpEnd); (14.375 : 8.64505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Pet/Pet_Purchase" />
       <nodes>
         <classShapeMoniker Id="a6e565ee-de87-4687-bdf5-a4204bfa1a07" />
@@ -120,14 +120,14 @@
         <elementListCompartment Id="8cebf299-8a8a-4b85-970b-438e4024f577" absoluteBounds="13.89, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(13.875 : 3.72199625651042); (9.78125 : 3.72199625651042); (9.78125 : 6)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13.875 : 3.72199625651042); (9.78125 : 3.72199625651042); (9.78125 : 6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Staff/Staff_Log" />
       <nodes>
         <classShapeMoniker Id="db732cd4-dfa3-4d2e-923f-9d46a5ec3b11" />
         <classShapeMoniker Id="a6b9a5bf-6b37-4dc1-8ccd-081d38afa731" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(13.875 : 4.06134974934896); (13.3125025 : 4.06134974934896); (13.3125025 : 7.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13.875 : 4.06134974934896); (13.3125025 : 4.06134974934896); (13.3125025 : 7.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Staff/Staff_Purchase" />
       <nodes>
         <classShapeMoniker Id="db732cd4-dfa3-4d2e-923f-9d46a5ec3b11" />
@@ -140,14 +140,14 @@
         <elementListCompartment Id="a687e70f-b823-4316-9e82-048a3046e933" absoluteBounds="10.765, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.75 : 2.21875); (9.21875 : 2.21875); (9.21875 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.75 : 2.21875); (9.21875 : 2.21875); (9.21875 : 4.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/StaffRole/StaffRole_Account" />
       <nodes>
         <classShapeMoniker Id="99123c30-76a2-46a6-aac0-0de80bb6890e" />
         <classShapeMoniker Id="5441ab02-9736-477b-9e60-e5b569f123bc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(12.75 : 2.84699625651042); (13.875 : 2.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.75 : 2.84699625651042); (13.875 : 2.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/StaffRole/StaffRole_Staff" />
       <nodes>
         <classShapeMoniker Id="99123c30-76a2-46a6-aac0-0de80bb6890e" />
@@ -160,7 +160,7 @@
         <elementListCompartment Id="717bb8f4-954d-491e-8605-c69453180e3b" absoluteBounds="6.89, 2.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.15625 : 3.56899251302083); (7.15625 : 10.1879271875); (14.4791641666667 : 10.1879271875 : JumpStart); (14.6458308333333 : 10.1879271875 : JumpEnd); (15.125 : 10.1879271875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.15625 : 3.56899251302083); (7.15625 : 10.1879271875); (15.125 : 10.1879271875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PetShopDataContext/Vaccine/Vaccine_Pet" />
       <nodes>
         <classShapeMoniker Id="555d2cf6-466a-4a72-9afd-d4bff9d8eb37" />

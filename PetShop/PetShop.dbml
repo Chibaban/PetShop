@@ -175,24 +175,6 @@
     <Parameter Name="Owners_Email" Parameter="owners_Email" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.Proc_Add_Pet" Method="Proc_Add_Pet1">
-    <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Type" Parameter="pet_Type" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Sex" Parameter="pet_Sex" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Pedigree" Parameter="pet_Pedigree" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Color" Parameter="pet_Color" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Birthday" Parameter="pet_Birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Pet_Growth" Parameter="pet_Growth" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Vaccine_ID" Parameter="vaccine_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Info" Parameter="pet_Info" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Price" Parameter="pet_Price" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Pet_Status" Parameter="pet_Status" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Origin_ID" Parameter="origin_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Owners_ID" Parameter="owners_ID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pet_Photo" Parameter="pet_Photo" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.Proc_Add_Purchase" Method="Proc_Add_Purchase">
     <Parameter Name="Purchase_ID" Parameter="purchase_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />

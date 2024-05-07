@@ -190,6 +190,9 @@ namespace PetShop
                              select items.Item_Description;
 
             lbItems.ItemsSource = ItemData.ToList();
+
+            InStock.IsChecked = false;
+            OutOfStock.IsChecked = false;
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
@@ -197,6 +200,22 @@ namespace PetShop
             Home_Page HP = new Home_Page();
             HP.Show();
             this.Close();
+        }
+
+        private void OutOfStock_Checked(object sender, RoutedEventArgs e)
+        {
+            var OutOfStockItems = _PSDC.Items.Where(item => item.Item_Availability == "Out of stock")
+                .Select(item => item.Item_Description);
+
+            lbItems.ItemsSource = OutOfStockItems.ToList();
+        }
+
+        private void InStock_Checked(object sender, RoutedEventArgs e)
+        {
+            var inStockItems = _PSDC.Items.Where(item => item.Item_Availability == "In Stock")
+                .Select(item => item.Item_Description);
+
+            lbItems.ItemsSource = inStockItems.ToList();
         }
     }
 }
