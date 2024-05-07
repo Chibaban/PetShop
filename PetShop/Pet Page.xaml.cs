@@ -34,6 +34,8 @@ namespace PetShop
             var PetsData = from pets in _PSDC.Pets
                            select pets.Pet_Name;
             lbPets.ItemsSource = PetsData.ToList();
+
+            PopulateComboBox();
         }
 
         private void lbStaffs_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -252,6 +254,18 @@ namespace PetShop
                 encoder.Save(ms);
                 return ms.ToArray();
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string SelectedFilter = comboBox.SelectedItem as string;
+
+            MessageBox.Show($"Message: {SelectedFilter}");
+        }
+
+        private void PopulateComboBox()
+        {
+            comboBox.Items.Clear();
         }
     }
 }

@@ -61,6 +61,7 @@
         <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <Label Content="Owner's ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,530,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="24" FontFamily="Britannic Bold"/>
         <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <ComboBox HorizontalAlignment="Left" Margin="950,116,0,0" VerticalAlignment="Top" Width="246" FontSize="24"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="950,116,0,0" VerticalAlignment="Top" Width="246" FontSize="24" SelectionChanged="ComboBox_SelectionChanged">
+        </ComboBox>
     </Grid>
 </Window>

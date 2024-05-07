@@ -85,7 +85,7 @@ namespace PetShop
             }
         }
 
-        private void lbStaffs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbPurchases_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lbPurchases.SelectedIndex >= 0 && lbPurchases.SelectedIndex < lbPurchases.Items.Count)
             {
@@ -104,21 +104,6 @@ namespace PetShop
                     tbStaffID.Text = PurchasesInfo.Staff_ID;
                 }
             }
-        }
-
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
-        {
-            tbPurchaseID.Text = null;
-            tbPetID.Text = null;
-            tbItemID.Text = null;
-            tbItemQuantity.Text = null;
-            tbPurchaseTotal.Text = null;
-            tbPurchaseDate.Text = null;
-            tbOwnerID.Text = null;
-            tbCustomerNum.Text = null;
-            tbStaffID.Text = null;
-
-            lbPurchases.ItemsSource = null;
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -148,16 +133,6 @@ namespace PetShop
                             select purchases.Purchase_ID;
 
             lbPurchases.ItemsSource = PurchasesData.ToList();
-
-            tbPurchaseID.Text = null;
-            tbPetID.Text = null;
-            tbItemID.Text = null;
-            tbItemQuantity.Text = null;
-            tbPurchaseTotal.Text = null;
-            tbPurchaseDate.Text = null;
-            tbOwnerID.Text = null;
-            tbCustomerNum.Text = null;
-            tbStaffID.Text = null;
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)

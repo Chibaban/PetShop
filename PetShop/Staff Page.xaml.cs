@@ -168,6 +168,9 @@ namespace PetShop
                             select staffs.Staff_LastName + ", " + staffs.Staff_FirstName;
 
             lbStaffs.ItemsSource = StaffsData.ToList();
+
+            Active.IsChecked = false;
+            Inactive.IsChecked = false;
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -202,6 +205,22 @@ namespace PetShop
             {
                 imagePicture.Source = new BitmapImage(new Uri(openDialog.FileName));
             }
+        }
+
+        private void Active_Checked(object sender, RoutedEventArgs e)
+        {
+            var Active = _PSDC.ActiveStaff_Views
+                .Select(staff => staff.Staff_LastName + ", " + staff.Staff_FirstName);
+
+            lbStaffs.ItemsSource = Active.ToList();
+        }
+
+        private void Inactive_Checked(object sender, RoutedEventArgs e)
+        {
+            var Inactive = _PSDC.InactiveStaff_Views
+                .Select(staff => staff.Staff_LastName + ", " + staff.Staff_FirstName);
+
+            lbStaffs.ItemsSource = Inactive.ToList();
         }
     }
 }

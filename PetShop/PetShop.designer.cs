@@ -172,6 +172,54 @@ namespace PetShop
 			}
 		}
 		
+		public System.Data.Linq.Table<InStockItems_View> InStockItems_Views
+		{
+			get
+			{
+				return this.GetTable<InStockItems_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OutOfStockItems_View> OutOfStockItems_Views
+		{
+			get
+			{
+				return this.GetTable<OutOfStockItems_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AdultPets_View> AdultPets_Views
+		{
+			get
+			{
+				return this.GetTable<AdultPets_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<YoungPets_View> YoungPets_Views
+		{
+			get
+			{
+				return this.GetTable<YoungPets_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ActiveStaff_View> ActiveStaff_Views
+		{
+			get
+			{
+				return this.GetTable<ActiveStaff_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InactiveStaff_View> InactiveStaff_Views
+		{
+			get
+			{
+				return this.GetTable<InactiveStaff_View>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[Proc Add_Pet]")]
 		public int Proc_Add_Pet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_ID", DbType="VarChar(50)")] string pet_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Name", DbType="VarChar(50)")] string pet_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Type", DbType="VarChar(50)")] string pet_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Sex", DbType="VarChar(50)")] string pet_Sex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Pedigree", DbType="VarChar(50)")] string pet_Pedigree, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Color", DbType="VarChar(50)")] string pet_Color, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Birthday", DbType="Date")] System.Nullable<System.DateTime> pet_Birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Growth", DbType="VarChar(50)")] string pet_Growth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Vaccine_ID", DbType="VarChar(50)")] string vaccine_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Info", DbType="VarChar(50)")] string pet_Info, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Price", DbType="Int")] System.Nullable<int> pet_Price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Status", DbType="VarChar(50)")] string pet_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Origin_ID", DbType="VarChar(50)")] string origin_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Owners_ID", DbType="VarChar(50)")] string owners_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pet_Photo", DbType="Image")] System.Data.Linq.Binary pet_Photo)
 		{
@@ -3115,6 +3163,924 @@ namespace PetShop
 		{
 			this.SendPropertyChanging();
 			entity.Vaccine = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InStockItems_View")]
+	public partial class InStockItems_View
+	{
+		
+		private string _Item_ID;
+		
+		private string _Item_Description;
+		
+		private int _Item_Price;
+		
+		private int _Item_Stock;
+		
+		private string _Item_Availability;
+		
+		public InStockItems_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_ID
+		{
+			get
+			{
+				return this._Item_ID;
+			}
+			set
+			{
+				if ((this._Item_ID != value))
+				{
+					this._Item_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_Description
+		{
+			get
+			{
+				return this._Item_Description;
+			}
+			set
+			{
+				if ((this._Item_Description != value))
+				{
+					this._Item_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Price", DbType="Int NOT NULL")]
+		public int Item_Price
+		{
+			get
+			{
+				return this._Item_Price;
+			}
+			set
+			{
+				if ((this._Item_Price != value))
+				{
+					this._Item_Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Stock", DbType="Int NOT NULL")]
+		public int Item_Stock
+		{
+			get
+			{
+				return this._Item_Stock;
+			}
+			set
+			{
+				if ((this._Item_Stock != value))
+				{
+					this._Item_Stock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Availability", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_Availability
+		{
+			get
+			{
+				return this._Item_Availability;
+			}
+			set
+			{
+				if ((this._Item_Availability != value))
+				{
+					this._Item_Availability = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OutOfStockItems_View")]
+	public partial class OutOfStockItems_View
+	{
+		
+		private string _Item_ID;
+		
+		private string _Item_Description;
+		
+		private int _Item_Price;
+		
+		private int _Item_Stock;
+		
+		private string _Item_Availability;
+		
+		public OutOfStockItems_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_ID
+		{
+			get
+			{
+				return this._Item_ID;
+			}
+			set
+			{
+				if ((this._Item_ID != value))
+				{
+					this._Item_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_Description
+		{
+			get
+			{
+				return this._Item_Description;
+			}
+			set
+			{
+				if ((this._Item_Description != value))
+				{
+					this._Item_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Price", DbType="Int NOT NULL")]
+		public int Item_Price
+		{
+			get
+			{
+				return this._Item_Price;
+			}
+			set
+			{
+				if ((this._Item_Price != value))
+				{
+					this._Item_Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Stock", DbType="Int NOT NULL")]
+		public int Item_Stock
+		{
+			get
+			{
+				return this._Item_Stock;
+			}
+			set
+			{
+				if ((this._Item_Stock != value))
+				{
+					this._Item_Stock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Availability", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_Availability
+		{
+			get
+			{
+				return this._Item_Availability;
+			}
+			set
+			{
+				if ((this._Item_Availability != value))
+				{
+					this._Item_Availability = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AdultPets_View")]
+	public partial class AdultPets_View
+	{
+		
+		private string _PET_ID;
+		
+		private string _Pet_Name;
+		
+		private string _Pet_Type;
+		
+		private string _Pet_Sex;
+		
+		private string _Pet_Pedigree;
+		
+		private string _Pet_Color;
+		
+		private System.DateTime _Pet_Birthday;
+		
+		private string _Pet_Growth;
+		
+		private string _Vaccine_ID;
+		
+		private string _Pet_Info;
+		
+		private int _Pet_Price;
+		
+		private string _Pet_Status;
+		
+		private string _Origin_ID;
+		
+		private string _Owners_ID;
+		
+		public AdultPets_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PET_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PET_ID
+		{
+			get
+			{
+				return this._PET_ID;
+			}
+			set
+			{
+				if ((this._PET_ID != value))
+				{
+					this._PET_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Name
+		{
+			get
+			{
+				return this._Pet_Name;
+			}
+			set
+			{
+				if ((this._Pet_Name != value))
+				{
+					this._Pet_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Type
+		{
+			get
+			{
+				return this._Pet_Type;
+			}
+			set
+			{
+				if ((this._Pet_Type != value))
+				{
+					this._Pet_Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Sex", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Sex
+		{
+			get
+			{
+				return this._Pet_Sex;
+			}
+			set
+			{
+				if ((this._Pet_Sex != value))
+				{
+					this._Pet_Sex = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Pedigree", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Pedigree
+		{
+			get
+			{
+				return this._Pet_Pedigree;
+			}
+			set
+			{
+				if ((this._Pet_Pedigree != value))
+				{
+					this._Pet_Pedigree = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Color", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Color
+		{
+			get
+			{
+				return this._Pet_Color;
+			}
+			set
+			{
+				if ((this._Pet_Color != value))
+				{
+					this._Pet_Color = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Birthday", DbType="Date NOT NULL")]
+		public System.DateTime Pet_Birthday
+		{
+			get
+			{
+				return this._Pet_Birthday;
+			}
+			set
+			{
+				if ((this._Pet_Birthday != value))
+				{
+					this._Pet_Birthday = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Growth", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Growth
+		{
+			get
+			{
+				return this._Pet_Growth;
+			}
+			set
+			{
+				if ((this._Pet_Growth != value))
+				{
+					this._Pet_Growth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vaccine_ID", DbType="VarChar(50)")]
+		public string Vaccine_ID
+		{
+			get
+			{
+				return this._Vaccine_ID;
+			}
+			set
+			{
+				if ((this._Vaccine_ID != value))
+				{
+					this._Vaccine_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Info", DbType="VarChar(50)")]
+		public string Pet_Info
+		{
+			get
+			{
+				return this._Pet_Info;
+			}
+			set
+			{
+				if ((this._Pet_Info != value))
+				{
+					this._Pet_Info = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Price", DbType="Int NOT NULL")]
+		public int Pet_Price
+		{
+			get
+			{
+				return this._Pet_Price;
+			}
+			set
+			{
+				if ((this._Pet_Price != value))
+				{
+					this._Pet_Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Status
+		{
+			get
+			{
+				return this._Pet_Status;
+			}
+			set
+			{
+				if ((this._Pet_Status != value))
+				{
+					this._Pet_Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Origin_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Origin_ID
+		{
+			get
+			{
+				return this._Origin_ID;
+			}
+			set
+			{
+				if ((this._Origin_ID != value))
+				{
+					this._Origin_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Owners_ID", DbType="VarChar(50)")]
+		public string Owners_ID
+		{
+			get
+			{
+				return this._Owners_ID;
+			}
+			set
+			{
+				if ((this._Owners_ID != value))
+				{
+					this._Owners_ID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.YoungPets_View")]
+	public partial class YoungPets_View
+	{
+		
+		private string _PET_ID;
+		
+		private string _Pet_Name;
+		
+		private string _Pet_Type;
+		
+		private string _Pet_Sex;
+		
+		private string _Pet_Pedigree;
+		
+		private string _Pet_Color;
+		
+		private System.DateTime _Pet_Birthday;
+		
+		private string _Pet_Growth;
+		
+		private string _Vaccine_ID;
+		
+		private string _Pet_Info;
+		
+		private int _Pet_Price;
+		
+		private string _Pet_Status;
+		
+		private string _Origin_ID;
+		
+		private string _Owners_ID;
+		
+		public YoungPets_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PET_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PET_ID
+		{
+			get
+			{
+				return this._PET_ID;
+			}
+			set
+			{
+				if ((this._PET_ID != value))
+				{
+					this._PET_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Name
+		{
+			get
+			{
+				return this._Pet_Name;
+			}
+			set
+			{
+				if ((this._Pet_Name != value))
+				{
+					this._Pet_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Type
+		{
+			get
+			{
+				return this._Pet_Type;
+			}
+			set
+			{
+				if ((this._Pet_Type != value))
+				{
+					this._Pet_Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Sex", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Sex
+		{
+			get
+			{
+				return this._Pet_Sex;
+			}
+			set
+			{
+				if ((this._Pet_Sex != value))
+				{
+					this._Pet_Sex = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Pedigree", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Pedigree
+		{
+			get
+			{
+				return this._Pet_Pedigree;
+			}
+			set
+			{
+				if ((this._Pet_Pedigree != value))
+				{
+					this._Pet_Pedigree = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Color", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Color
+		{
+			get
+			{
+				return this._Pet_Color;
+			}
+			set
+			{
+				if ((this._Pet_Color != value))
+				{
+					this._Pet_Color = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Birthday", DbType="Date NOT NULL")]
+		public System.DateTime Pet_Birthday
+		{
+			get
+			{
+				return this._Pet_Birthday;
+			}
+			set
+			{
+				if ((this._Pet_Birthday != value))
+				{
+					this._Pet_Birthday = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Growth", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Growth
+		{
+			get
+			{
+				return this._Pet_Growth;
+			}
+			set
+			{
+				if ((this._Pet_Growth != value))
+				{
+					this._Pet_Growth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vaccine_ID", DbType="VarChar(50)")]
+		public string Vaccine_ID
+		{
+			get
+			{
+				return this._Vaccine_ID;
+			}
+			set
+			{
+				if ((this._Vaccine_ID != value))
+				{
+					this._Vaccine_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Info", DbType="VarChar(50)")]
+		public string Pet_Info
+		{
+			get
+			{
+				return this._Pet_Info;
+			}
+			set
+			{
+				if ((this._Pet_Info != value))
+				{
+					this._Pet_Info = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Price", DbType="Int NOT NULL")]
+		public int Pet_Price
+		{
+			get
+			{
+				return this._Pet_Price;
+			}
+			set
+			{
+				if ((this._Pet_Price != value))
+				{
+					this._Pet_Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Pet_Status
+		{
+			get
+			{
+				return this._Pet_Status;
+			}
+			set
+			{
+				if ((this._Pet_Status != value))
+				{
+					this._Pet_Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Origin_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Origin_ID
+		{
+			get
+			{
+				return this._Origin_ID;
+			}
+			set
+			{
+				if ((this._Origin_ID != value))
+				{
+					this._Origin_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Owners_ID", DbType="VarChar(50)")]
+		public string Owners_ID
+		{
+			get
+			{
+				return this._Owners_ID;
+			}
+			set
+			{
+				if ((this._Owners_ID != value))
+				{
+					this._Owners_ID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ActiveStaff_View")]
+	public partial class ActiveStaff_View
+	{
+		
+		private string _Staff_ID;
+		
+		private string _Staff_FirstName;
+		
+		private string _Staff_LastName;
+		
+		private string _StaffRole_ID;
+		
+		private string _Staff_Status;
+		
+		public ActiveStaff_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_ID
+		{
+			get
+			{
+				return this._Staff_ID;
+			}
+			set
+			{
+				if ((this._Staff_ID != value))
+				{
+					this._Staff_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_FirstName
+		{
+			get
+			{
+				return this._Staff_FirstName;
+			}
+			set
+			{
+				if ((this._Staff_FirstName != value))
+				{
+					this._Staff_FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_LastName
+		{
+			get
+			{
+				return this._Staff_LastName;
+			}
+			set
+			{
+				if ((this._Staff_LastName != value))
+				{
+					this._Staff_LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffRole_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StaffRole_ID
+		{
+			get
+			{
+				return this._StaffRole_ID;
+			}
+			set
+			{
+				if ((this._StaffRole_ID != value))
+				{
+					this._StaffRole_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_Status
+		{
+			get
+			{
+				return this._Staff_Status;
+			}
+			set
+			{
+				if ((this._Staff_Status != value))
+				{
+					this._Staff_Status = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InactiveStaff_View")]
+	public partial class InactiveStaff_View
+	{
+		
+		private string _Staff_ID;
+		
+		private string _Staff_FirstName;
+		
+		private string _Staff_LastName;
+		
+		private string _StaffRole_ID;
+		
+		private string _Staff_Status;
+		
+		public InactiveStaff_View()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_ID
+		{
+			get
+			{
+				return this._Staff_ID;
+			}
+			set
+			{
+				if ((this._Staff_ID != value))
+				{
+					this._Staff_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_FirstName
+		{
+			get
+			{
+				return this._Staff_FirstName;
+			}
+			set
+			{
+				if ((this._Staff_FirstName != value))
+				{
+					this._Staff_FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_LastName
+		{
+			get
+			{
+				return this._Staff_LastName;
+			}
+			set
+			{
+				if ((this._Staff_LastName != value))
+				{
+					this._Staff_LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffRole_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StaffRole_ID
+		{
+			get
+			{
+				return this._StaffRole_ID;
+			}
+			set
+			{
+				if ((this._StaffRole_ID != value))
+				{
+					this._StaffRole_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_Status
+		{
+			get
+			{
+				return this._Staff_Status;
+			}
+			set
+			{
+				if ((this._Staff_Status != value))
+				{
+					this._Staff_Status = value;
+				}
+			}
 		}
 	}
 }

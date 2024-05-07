@@ -7,12 +7,9 @@
         mc:Ignorable="d"
         Title="Item_Page" Height="720" Width="980" Background="#FF8A8A8A">
     <Grid>
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
         <ListBox x:Name="lbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="568,265,74,144" FontSize="24" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbItems_SelectionChanged"/>
         <Label Content="Iteyms" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="702,210,0,0" VerticalAlignment="Top" Width="82" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="97,116,0,0" VerticalAlignment="Top" Height="72" Width="74" BorderBrush="#00000000" Click="btHome_Click">
+        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="100,63,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/home.png"/>
             </Button.Background>
@@ -35,8 +32,8 @@
         <Button x:Name="btnSave" Content="Sayve" HorizontalAlignment="Left" Margin="286,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnSave_Click"/>
         <Button x:Name="btnCreate" Content="Cryeate" HorizontalAlignment="Left" Margin="652,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="31" Margin="616,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
-        <Label Content="Labely" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="34,271,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Adminy" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="86,220,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="100,175,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="47,235,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <Label Content="Seyarch:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="510,41,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Britannic Bold"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="276,60,0,0" VerticalAlignment="Top" Width="208">
             <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>

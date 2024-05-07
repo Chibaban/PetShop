@@ -35,7 +35,7 @@ namespace PetShop
 
             var OriginsData = from origins in _PSDC.Origins
                             select origins.Origin_LastName + ", " + origins.Origin_FirstName;
-            lbOrigins.ItemsSource = OriginsData.ToList();
+            lbOrigin.ItemsSource = OriginsData.ToList();
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
@@ -45,11 +45,11 @@ namespace PetShop
             this.Close();
         }
 
-        private void lbOrigins_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbOrigin_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lbOrigins.SelectedIndex >= 0 && lbOrigins.SelectedIndex < lbOrigins.Items.Count)
+            if (lbOrigin.SelectedIndex >= 0 && lbOrigin.SelectedIndex < lbOrigin.Items.Count)
             {
-                var selectedItem = lbOrigins.SelectedItem.ToString();
+                var selectedItem = lbOrigin.SelectedItem.ToString();
                 var OriginsInfo = _PSDC.Origins.FirstOrDefault(o => o.Origin_LastName + ", " + o.Origin_FirstName == selectedItem);
                 if (OriginsInfo != null)
                 {
@@ -70,7 +70,7 @@ namespace PetShop
             tbOriginContact.Text = null;
             tbOriginEmail.Text = null;
 
-            lbOrigins.ItemsSource = null;
+            lbOrigin.ItemsSource = null;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -121,12 +121,12 @@ namespace PetShop
             var OriginsData = from origins in _PSDC.Origins
                             select origins.Origin_LastName + ", " + origins.Origin_FirstName;
 
-            lbOrigins.ItemsSource = OriginsData.ToList();
+            lbOrigin.ItemsSource = OriginsData.ToList();
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbOrigins.ItemsSource = null;
+            lbOrigin.ItemsSource = null;
 
             string searchItem = tbSearch.Text;
 
@@ -143,7 +143,7 @@ namespace PetShop
             }
 
             // Set the new list as the ItemsSource
-            lbOrigins.ItemsSource = originNames;
+            lbOrigin.ItemsSource = originNames;
         }
     }
 }

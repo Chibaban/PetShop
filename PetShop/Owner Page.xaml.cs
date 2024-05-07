@@ -116,12 +116,6 @@ namespace PetShop
                             select owners.Owners_LastName + ", " + owners.Owners_FirstName;
 
             lbOwners.ItemsSource = OwnerData.ToList();
-
-            tbOwnerID.Text = null;
-            tbOwnerFName.Text = null;
-            tbOwnerLName.Text = null;
-            tbOwnerContact.Text = null;
-            tbOwnerEmail.Text = null;
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)

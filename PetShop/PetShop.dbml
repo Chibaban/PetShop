@@ -132,6 +132,78 @@
       <Association Name="Vaccine_Pet" Member="Pets" ThisKey="Vaccine_ID" OtherKey="Vaccine_ID" Type="Pet" />
     </Type>
   </Table>
+  <Table Name="dbo.InStockItems_View" Member="InStockItems_Views">
+    <Type Name="InStockItems_View">
+      <Column Name="Item_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Availability" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OutOfStockItems_View" Member="OutOfStockItems_Views">
+    <Type Name="OutOfStockItems_View">
+      <Column Name="Item_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_Availability" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AdultPets_View" Member="AdultPets_Views">
+    <Type Name="AdultPets_View">
+      <Column Name="PET_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Sex" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Pedigree" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Growth" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Vaccine_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pet_Info" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pet_Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Origin_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Owners_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.YoungPets_View" Member="YoungPets_Views">
+    <Type Name="YoungPets_View">
+      <Column Name="PET_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Sex" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Pedigree" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Growth" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Vaccine_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pet_Info" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pet_Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pet_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Origin_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Owners_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActiveStaff_View" Member="ActiveStaff_Views">
+    <Type Name="ActiveStaff_View">
+      <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffRole_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InactiveStaff_View" Member="InactiveStaff_Views">
+    <Type Name="InactiveStaff_View">
+      <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffRole_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.[Proc Add_Pet]" Method="Proc_Add_Pet">
     <Parameter Name="Pet_ID" Parameter="pet_ID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pet_Name" Parameter="pet_Name" Type="System.String" DbType="VarChar(50)" />

@@ -204,7 +204,7 @@ namespace PetShop
 
         private void OutOfStock_Checked(object sender, RoutedEventArgs e)
         {
-            var OutOfStockItems = _PSDC.Items.Where(item => item.Item_Availability == "Out of stock")
+            var OutOfStockItems = _PSDC.OutOfStockItems_Views
                 .Select(item => item.Item_Description);
 
             lbItems.ItemsSource = OutOfStockItems.ToList();
@@ -212,7 +212,7 @@ namespace PetShop
 
         private void InStock_Checked(object sender, RoutedEventArgs e)
         {
-            var inStockItems = _PSDC.Items.Where(item => item.Item_Availability == "In Stock")
+            var inStockItems = _PSDC.InStockItems_Views
                 .Select(item => item.Item_Description);
 
             lbItems.ItemsSource = inStockItems.ToList();
