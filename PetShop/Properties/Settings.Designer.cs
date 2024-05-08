@@ -12,7 +12,7 @@ namespace PetShop.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,28 +20,6 @@ namespace PetShop.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CCL01-11;Initial Catalog=\"Pet & Item Shop Database\";Integrated Securi" +
-            "ty=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
-        public string Pet_Shop_DatabaseConnectionString2 {
-            get {
-                return ((string)(this["Pet_Shop_DatabaseConnectionString2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CCL01-11;Initial Catalog=\"Pet & Item Shop Database\";Integrated Securi" +
-            "ty=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;")]
-        public string Pet_Shop_DatabaseConnectionString1 {
-            get {
-                return ((string)(this["Pet_Shop_DatabaseConnectionString1"]));
             }
         }
         
@@ -75,6 +53,30 @@ namespace PetShop.Properties {
         public string Pet_Shop_DatabaseConnectionString3 {
             get {
                 return ((string)(this["Pet_Shop_DatabaseConnectionString3"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-ETCNUFV\\SQLEXPRESS;Initial Catalog=\"Pet Shop Database\";Integr" +
+            "ated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;" +
+            "")]
+        public string Pet_Shop_DatabaseConnectionString1 {
+            get {
+                return ((string)(this["Pet_Shop_DatabaseConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-ETCNUFV\\SQLEXPRESS;Initial Catalog=\"Pet Shop Database\";Integr" +
+            "ated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" +
+            "")]
+        public string Pet_Shop_DatabaseConnectionString2 {
+            get {
+                return ((string)(this["Pet_Shop_DatabaseConnectionString2"]));
             }
         }
     }

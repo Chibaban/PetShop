@@ -306,161 +306,235 @@ namespace PetShop
 
         private void cbDog_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbDog_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbCat_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbCat_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbMale_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbMale_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbFemale_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbFemale_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbYoung_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbYoung_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbAdult_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbAdult_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbSenior_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbSenior_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbNoVax_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbNoVax_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbRB_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbRB_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbF5_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbF5_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbF5RB_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbF5RB_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbDA2PP_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbDA2PP_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbDA2PPRB_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbDA2PPRB_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbAvailable_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbAvailable_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
         }
 
         private void cbSold_Checked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount++;
+            FilterPets();
         }
 
         private void cbSold_Unchecked(object sender, RoutedEventArgs e)
         {
-            _CheckedCount--;
+            FilterPets();
+        }
+
+        private void FilterPets()
+        {
+            var filteredPets = _PSDC.Pets.ToList(); // Assuming _PSDC.Pets contains all pets
+
+            if (cbDog.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Type == "Dog").ToList();
+            }
+
+            if (cbCat.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Type == "Cat").ToList();
+            }
+
+            if (cbMale.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Sex == "Male").ToList();
+            }
+
+            if (cbFemale.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Sex == "Female").ToList();
+            }
+
+            if (cbYoung.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Growth == "Young").ToList();
+            }
+
+            if (cbAdult.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Growth == "Adult").ToList();
+            }
+
+            if (cbSenior.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Growth == "Senior").ToList();
+            }
+
+            if (cbNoVax.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "NO-VAX").ToList();
+            }
+
+            if (cbF5.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "F5").ToList();
+            }
+
+            if (cbF5RB.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "F5-RB").ToList();
+            }
+
+            if (cbDA2PP.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "DA2PP").ToList();
+            }
+
+            if (cbDA2PPRB.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "DA2PP-RB").ToList();
+            }
+
+            if (cbAvailable.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Status == "Available").ToList();
+            }
+
+            if (cbSold.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Pet_Status == "Sold").ToList();
+            }
+
+            // Update the listbox with the filtered pets
+            lbPets.ItemsSource = filteredPets.Select(p => p.Pet_Name).ToList();
         }
 
         private void categoryBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (_CheckedCount == 1)
-            {
-                var inStockItems = _PSDC.InStockItems_Views
-                .Select(item => item.Item_Description);
-            }
+
         }
     }
 }
