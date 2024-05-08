@@ -83,5 +83,25 @@ namespace PetShop
                 pbPassword.Password = null;
             }
         }
+
+        private void cbShowPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void cbShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbShowPassword.IsChecked == true)
+            {
+                tbDummy.Text = pbPassword.Password;
+                pbPassword.Visibility = Visibility.Hidden;
+                tbDummy.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                pbPassword.Visibility = Visibility.Visible;
+                tbDummy.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

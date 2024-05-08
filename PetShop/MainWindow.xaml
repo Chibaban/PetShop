@@ -14,6 +14,7 @@
         <Label Content="Pet Shop" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontSize="48"/>
         <Button Content="Clear" x:Name="btClear" HorizontalAlignment="Left" Margin="178,358,0,0" VerticalAlignment="Top" Height="33" Width="95" Click="btClear_Click"/>
         <Button Content="Log In" x:Name="btLogIn" HorizontalAlignment="Left" Margin="307,358,0,0" VerticalAlignment="Top" Height="33" Width="95" Click="btLogIn_Click"/>
-        <TextBox HorizontalAlignment="Left" x:Name="tbDummy" Height="28" Margin="584,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="99"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbDummy" Height="28" Margin="178,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" FontSize="20" Visibility="Collapsed"/>
+        <CheckBox Content="Show Password" x:Name="cbShowPassword" HorizontalAlignment="Left" Margin="70,302,0,0" VerticalAlignment="Top" Click="cbShowPassword_Click" Checked="cbShowPassword_Checked"/>
     </Grid>
 </Window>

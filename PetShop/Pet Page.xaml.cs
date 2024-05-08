@@ -503,6 +503,11 @@ namespace PetShop
                 filteredPets = filteredPets.Where(p => p.Vaccine_ID == "F5").ToList();
             }
 
+            if (cbRB.IsChecked == true)
+            {
+                filteredPets = filteredPets.Where(p => p.Vaccine_ID == "RB").ToList();
+            }
+
             if (cbF5RB.IsChecked == true)
             {
                 filteredPets = filteredPets.Where(p => p.Vaccine_ID == "F5-RB").ToList();
