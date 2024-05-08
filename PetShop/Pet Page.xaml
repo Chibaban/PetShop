@@ -42,7 +42,7 @@
             <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
         </Border>
         <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="34" Width="208" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
-        <Image x:Name="imagePicture" Margin="196,101,880,398"/>
+        <Image x:Name="imagePicture" Margin="198,105,0,0" Stretch="None" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
         <Label Content="Pet ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="98,383,0,0" VerticalAlignment="Top" Height="33" Width="81" FontSize="24" FontFamily="Britannic Bold"/>
         <Label Content="Pet Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="63,419,0,0" VerticalAlignment="Top" Height="32" Width="116" FontSize="24" FontFamily="Britannic Bold"/>
         <Label Content="Pet Type:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="75,453,0,0" VerticalAlignment="Top" Height="38" Width="107" FontSize="24" FontFamily="Britannic Bold"/>
@@ -61,7 +61,22 @@
         <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
         <Label Content="Owner's ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,530,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="24" FontFamily="Britannic Bold"/>
         <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="950,116,0,0" VerticalAlignment="Top" Width="246" FontSize="24" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="950,116,0,0" VerticalAlignment="Top" Width="246" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed">
+            <CheckBox x:Name="cbDog" Content="Dog" Checked="cbDog_Checked" Unchecked="cbDog_Unchecked"/>
+            <CheckBox x:Name="cbCat" Content="Cat" Checked="cbCat_Checked" Unchecked="cbCat_Unchecked"/>
+            <CheckBox x:Name="cbMale" Content="Male" Checked="cbMale_Checked" Unchecked="cbMale_Unchecked"/>
+            <CheckBox x:Name="cbFemale" Content="Female" Checked="cbFemale_Checked" Unchecked="cbFemale_Unchecked"/>
+            <CheckBox x:Name="cbYoung" Content="Young" Checked="cbYoung_Checked" Unchecked="cbYoung_Unchecked"/>
+            <CheckBox x:Name="cbAdult" Content="Adult" Checked="cbAdult_Checked" Unchecked="cbAdult_Unchecked"/>
+            <CheckBox x:Name="cbSenior" Content="Senior" Checked="cbSenior_Checked" Unchecked="cbSenior_Unchecked"/>
+            <CheckBox x:Name="cbNoVax" Content="NO-VAX" Checked="cbNoVax_Checked" Unchecked="cbNoVax_Unchecked"/>
+            <CheckBox x:Name="cbRB" Content="RB" Checked="cbRB_Checked" Unchecked="cbRB_Unchecked"/>
+            <CheckBox x:Name="cbF5" Content="F5" Checked="cbF5_Checked" Unchecked="cbF5_Unchecked"/>
+            <CheckBox x:Name="cbF5RB" Content="F5-RB" Checked="cbF5RB_Checked" Unchecked="cbF5RB_Unchecked"/>
+            <CheckBox x:Name="cbDA2PP" Content="DA2PP" Checked="cbDA2PP_Checked" Unchecked="cbDA2PP_Unchecked"/>
+            <CheckBox x:Name="cbDA2PPRB" Content="DA2PP-RB" Checked="cbDA2PPRB_Checked" Unchecked="cbDA2PPRB_Unchecked"/>
+            <CheckBox x:Name="cbAvailable" Content="Available" Checked="cbAvailable_Checked" Unchecked="cbAvailable_Unchecked"/>
+            <CheckBox x:Name="cbSold" Content="Sold" Checked="cbSold_Checked" Unchecked="cbSold_Unchecked"/>
         </ComboBox>
     </Grid>
 </Window>

@@ -39,7 +39,7 @@
             <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
         </Border>
         <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="276,295,0,0" VerticalAlignment="Top" Height="34" Width="208" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
-        <Image x:Name="imagePicture" Margin="278,61,496,438"/>
+        <Image x:Name="imagePicture" Margin="281,64,0,0" Stretch="None" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
         <RadioButton x:Name="InStock" Content="In Stock" HorizontalAlignment="Left" Margin="702,114,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="InStock_Checked"/>
         <RadioButton x:Name="OutOfStock" Content="Out Of Stock" HorizontalAlignment="Left" Margin="702,145,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="OutOfStock_Checked"/>
     </Grid>

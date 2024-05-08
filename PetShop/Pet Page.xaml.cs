@@ -22,6 +22,7 @@ namespace PetShop
     public partial class Pet_Page : Window
     {
         PetShopDataContext _PSDC = null;
+        private int _CheckedCount = 0;
 
         public Pet_Page()
         {
@@ -34,8 +35,6 @@ namespace PetShop
             var PetsData = from pets in _PSDC.Pets
                            select pets.Pet_Name;
             lbPets.ItemsSource = PetsData.ToList();
-
-            PopulateComboBox();
         }
 
         private void lbStaffs_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -185,6 +184,24 @@ namespace PetShop
                     existingPets.Pet_Photo = imageData;
                 }
 
+                if (tbOwnersID.Text == null || tbOwnersID.Text == "")
+                {
+                    tbOwnersID.Text = "-";
+                    existingPets.Origin_ID = tbOriginID.Text;
+                }
+
+                if (tbPetVaccine.Text == null || tbPetVaccine.Text == "")
+                {
+                    tbPetVaccine.Text = "NO-VAX";
+                    existingPets.Vaccine_ID = tbPetVaccine.Text;
+                }
+
+                if (tbPetInfo.Text == null || tbPetInfo.Text == "")
+                {
+                    tbPetInfo.Text = "No Info";
+                    existingPets.Pet_Info = tbPetInfo.Text;
+                }
+
                 _PSDC.SubmitChanges();
                 MessageBox.Show("Pet information updated successfully.");
 
@@ -213,7 +230,20 @@ namespace PetShop
             {
                 if (tbOwnersID.Text == null)
                 {
-                    tbOwnersID.Text = "";
+                    tbOwnersID.Text = "-";
+                    existingPets.Origin_ID = tbOriginID.Text;
+                }
+
+                if (tbPetVaccine.Text == null)
+                {
+                    tbPetVaccine.Text = "NO-VAX";
+                    existingPets.Vaccine_ID = tbPetVaccine.Text;
+                }
+
+                if (tbPetInfo.Text == null)
+                {
+                    tbPetInfo.Text = "No Info";
+                    existingPets.Pet_Info = tbPetInfo.Text;
                 }
 
                     _PSDC.Proc_Add_Pet
@@ -258,14 +288,179 @@ namespace PetShop
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string SelectedFilter = comboBox.SelectedItem as string;
+            //foreach (var category in categoryBox.Items)
+            //{
+            //    CheckBox checkcategory = (CheckBox)category;
+            //    if ((bool)checkcategory.IsChecked)
+            //    {
+            //        _CheckedCount++;
+            //    }
+            //    else
+            //    {
+            //        _CheckedCount--;
+            //    }
+            //}
 
-            MessageBox.Show($"Message: {SelectedFilter}");
+            MessageBox.Show($"Count: {_CheckedCount}");
         }
 
-        private void PopulateComboBox()
+        private void cbDog_Checked(object sender, RoutedEventArgs e)
         {
-            comboBox.Items.Clear();
+            _CheckedCount++;
+        }
+
+        private void cbDog_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbCat_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbCat_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbMale_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbMale_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbFemale_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbFemale_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbYoung_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbYoung_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbAdult_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbAdult_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbSenior_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbSenior_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbNoVax_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbNoVax_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbRB_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbRB_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbF5_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbF5_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbF5RB_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbF5RB_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbDA2PP_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbDA2PP_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbDA2PPRB_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbDA2PPRB_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbAvailable_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbAvailable_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void cbSold_Checked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount++;
+        }
+
+        private void cbSold_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _CheckedCount--;
+        }
+
+        private void categoryBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (_CheckedCount == 1)
+            {
+                var inStockItems = _PSDC.InStockItems_Views
+                .Select(item => item.Item_Description);
+            }
         }
     }
 }
