@@ -301,7 +301,7 @@ namespace PetShop
             //    }
             //}
 
-            MessageBox.Show($"Count: {_CheckedCount}");
+            //MessageBox.Show($"Count: {_CheckedCount}");
         }
 
         private void cbDog_Checked(object sender, RoutedEventArgs e)
