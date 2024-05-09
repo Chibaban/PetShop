@@ -93,6 +93,8 @@ namespace PetShop
                 tbOwnerLName.Text = null;
                 tbOwnerContact.Text = null;
                 tbOwnerEmail.Text = null;
+
+                lbOwners.ItemsSource = null;
             }
             else
             {
