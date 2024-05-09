@@ -152,13 +152,13 @@
             <ImageBrush ImageSource="/calico background.png"/>
         </Grid.Background>
         <ListBox x:Name="lbOwners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="691,267,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbOwners_SelectionChanged" Width="262" Height="295" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#7FFFFFFF"/>
-        <Label Content="Owner List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="55" Margin="722,212,0,0" VerticalAlignment="Top" Width="200" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="Owner List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="55" Margin="749,212,0,0" VerticalAlignment="Top" Width="204" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
         <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="81,68,0,0" VerticalAlignment="Top" Height="100" Width="100" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Owner icon.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="#00000000" Click="btViewing_Click">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="704,210,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/views.png"/>
             </Button.Background>
@@ -180,6 +180,6 @@
         <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="200,68,0,0" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
         <Label Content="Label" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="200,118,0,0" VerticalAlignment="Top" Width="372" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
         <Label Content="Home" HorizontalContentAlignment="Center" x:Name="lbAdmin_Copy" HorizontalAlignment="Left" Height="40" Margin="94,164,0,0" VerticalAlignment="Top" Width="74" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
-        <Label Content="View All" HorizontalContentAlignment="Center" x:Name="lbGetDate_Copy" HorizontalAlignment="Center" Height="30" Margin="0,250,0,0" VerticalAlignment="Top" Width="60" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="View All" HorizontalContentAlignment="Center" x:Name="lbGetDate_Copy" HorizontalAlignment="Left" Height="30" Margin="694,244,0,0" VerticalAlignment="Top" Width="60" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
     </Grid>
 </Window>
