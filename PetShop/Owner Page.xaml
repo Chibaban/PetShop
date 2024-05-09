@@ -5,35 +5,181 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
         mc:Ignorable="d"
-        Title="Owner_Page" Height="720" Width="980" Background="#FF8A8A8A">
+        Title="Owner_Page" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Background="#FF8A8A8A">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="ListBox.Static.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Static.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9"/>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="{StaticResource ListBox.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ListBox.Static.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border x:Name="Bd" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="1" SnapsToDevicePixels="true">
+                            <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Border}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsGrouping" Value="true"/>
+                                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbOwners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="568,265,74,144" FontSize="24" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbOwners_SelectionChanged"/>
-        <Label Content="Owner" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="690,210,0,0" VerticalAlignment="Top" Width="84" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="100,63,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
+        <Grid.Background>
+            <ImageBrush ImageSource="/calico background.png"/>
+        </Grid.Background>
+        <ListBox x:Name="lbOwners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="691,267,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbOwners_SelectionChanged" Width="262" Height="295" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#7FFFFFFF"/>
+        <Label Content="Owner List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="55" Margin="722,212,0,0" VerticalAlignment="Top" Width="200" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="81,68,0,0" VerticalAlignment="Top" Height="100" Width="100" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/home.png"/>
+                <ImageBrush ImageSource="/Owner icon.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="695,100,0,0" VerticalAlignment="Top" Height="70" Width="74" BorderBrush="#00000000" Click="btViewing_Click">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Viewing.png"/>
+                <ImageBrush ImageSource="/views.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Owner ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="175,369,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's First Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="70,408,0,0" VerticalAlignment="Top" Height="38" Width="225" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Last Name:" HorizontalContentAlignment="Left" Margin="75,448,680,0" VerticalAlignment="Top" Height="38" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Contact #:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="80,486,0,0" VerticalAlignment="Top" Height="38" Width="213" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Owner's Email:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="126,522,0,0" VerticalAlignment="Top" Height="38" Width="164" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbOwnerID" HorizontalAlignment="Left" Height="30" Margin="292,372,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerFName" HorizontalAlignment="Left" Height="30" Margin="292,412,0,0" TextWrapping="Wrap" Text="Owner's First Name" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerLName" HorizontalAlignment="Left" Height="32" Margin="292,451,0,0" TextWrapping="Wrap" Text="Owner's Last Name" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerContact" HorizontalAlignment="Left" Height="31" Margin="292,490,0,0" TextWrapping="Wrap" Text="Owner's Contact #" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Left" Height="32" Margin="292,529,0,0" TextWrapping="Wrap" Text="Owner's Email" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Sayve" HorizontalAlignment="Left" Margin="286,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnSave_Click"/>
-        <Button x:Name="btnCreate" Content="Cryeate" HorizontalAlignment="Left" Margin="652,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="31" Margin="616,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
-        <Label Content="Seyarch:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="510,41,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="100,175,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="47,235,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Owner ID : " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="214,369,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="First Name : " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="104,409,0,0" VerticalAlignment="Top" Height="38" Width="225" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Last Name :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="117,449,951,0" VerticalAlignment="Top" Height="38" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Contact # :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="116,488,0,0" VerticalAlignment="Top" Height="38" Width="213" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Email :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="165,527,0,0" VerticalAlignment="Top" Height="38" Width="164" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbOwnerID" HorizontalAlignment="Left" Height="30" Margin="329,373,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbOwnerFName" HorizontalAlignment="Left" Height="30" Margin="329,413,0,0" TextWrapping="Wrap" Text="Owner's First Name" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbOwnerLName" HorizontalAlignment="Left" Height="32" Margin="329,452,0,0" TextWrapping="Wrap" Text="Owner's Last Name" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbOwnerContact" HorizontalAlignment="Left" Height="31" Margin="329,491,0,0" TextWrapping="Wrap" Text="Owner's Contact #" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Left" Height="32" Margin="329,530,0,0" TextWrapping="Wrap" Text="Owner's Email" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="329,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Bahnschrift" Click="btnSave_Click" FontWeight="Bold"/>
+        <Button x:Name="btnCreate" Content="Create New Entry" HorizontalAlignment="Left" Margin="691,572,0,0" VerticalAlignment="Top" Height="38" Width="262" FontSize="24" FontFamily="Bahnschrift" Click="btnCreate_Click" FontWeight="Bold"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="30" Margin="329,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
+        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="227,216,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="200,68,0,0" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="Label" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="200,118,0,0" VerticalAlignment="Top" Width="372" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="Home" HorizontalContentAlignment="Center" x:Name="lbAdmin_Copy" HorizontalAlignment="Left" Height="40" Margin="94,164,0,0" VerticalAlignment="Top" Width="74" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="View All" HorizontalContentAlignment="Center" x:Name="lbGetDate_Copy" HorizontalAlignment="Center" Height="30" Margin="0,250,0,0" VerticalAlignment="Top" Width="60" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
     </Grid>
 </Window>

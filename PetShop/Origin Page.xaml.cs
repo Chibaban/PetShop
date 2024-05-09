@@ -28,7 +28,7 @@ namespace PetShop
         public Origin_Page()
         {
             InitializeComponent();
-            lbGetDate.Content = DateTime.Now.ToString("yyyy-MM-dd");
+            lbGetDate.Content = "Date :  " + DateTime.Now.ToString("MMM-dd-yyyy");
 
             _PSDC = new PetShopDataContext
                 (Properties.Settings.Default.Pet_Shop_DatabaseConnectionString);

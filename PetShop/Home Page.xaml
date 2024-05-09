@@ -5,50 +5,130 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
         mc:Ignorable="d"
-        Title="Home Page" Height="720" Width="980">
+        Title="Home Page" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="/BackG.png"/>
     </Window.Background>
     <Grid>
-        <Label Content="Labely" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="31,29,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Center" Height="38" Margin="0,29,0,0" VerticalAlignment="Top" Width="80" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btPet" HorizontalAlignment="Left" Margin="110,179,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="Black" Click="btPet_Click">
+        <Grid.Background>
+            <ImageBrush ImageSource="/pet shop home page.png"/>
+        </Grid.Background>
+        <Label Content="Date" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="47,72,0,0" VerticalAlignment="Top" Width="341" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold"/>
+        <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="38" Margin="47,29,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold"/>
+        <Button Content="" x:Name="btPet" HorizontalAlignment="Left" Margin="228,177,0,0" VerticalAlignment="Top" Height="170" Width="170" BorderBrush="{x:Null}" Click="btPet_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Cat and Dog.jpg" Stretch="Fill" TileMode="None"/>
+                <ImageBrush ImageSource="/Pet icon.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Label Content="Pet Shop" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="44" Margin="0,111,0,0" VerticalAlignment="Top" Width="132" FontSize="30" FontFamily="Britannic Bold" BorderThickness="1" Foreground="Black" FontWeight="Bold" Background="White" BorderBrush="Black"/>
-        <Button Content="" x:Name="btOwner" HorizontalAlignment="Left" Margin="110,429,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="#00000000" Click="btOwner_Click">
+        <Button Content="" x:Name="btOwner" HorizontalAlignment="Center" Margin="0,429,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="{x:Null}" Click="btOwner_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Owner.png" Stretch="Fill" TileMode="None"/>
+                <ImageBrush ImageSource="/Owner icon.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btItems" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="Black" Click="btItems_Click">
+        <Button Content="" x:Name="btItems" HorizontalAlignment="Left" Margin="238,429,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="{x:Null}" Click="btItems_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Items.jpg" Stretch="Fill" TileMode="None"/>
+                <ImageBrush ImageSource="/Item icon.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btOrigin" HorizontalAlignment="Center" Margin="0,429,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="#00000000" Click="btOrigin_Click">
+        <Button Content="" x:Name="btOrigin" HorizontalAlignment="Center" Margin="0,187,0,0" VerticalAlignment="Top" Height="160" Width="160" BorderBrush="#00000000" Click="btOrigin_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Origin.png" Stretch="Uniform" TileMode="None"/>
+                <ImageBrush ImageSource="/Origin icon.png" Stretch="Uniform" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btPurchase" HorizontalAlignment="Left" Margin="728,179,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="Black" Click="btPurchase_Click">
+        <Button Content="" x:Name="btPurchase" HorizontalAlignment="Left" Margin="853,399,0,0" VerticalAlignment="Top" Height="180" Width="180" BorderBrush="{x:Null}" Click="btPurchase_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Purchase.jpg" Stretch="Fill" TileMode="None"/>
+                <ImageBrush ImageSource="/Purchase icon.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btStaff" HorizontalAlignment="Left" Margin="728,424,0,0" VerticalAlignment="Top" Height="150" Width="150" BorderBrush="Black" Click="btStaff_Click">
+        <Button Content="" x:Name="btStaff" HorizontalAlignment="Left" Margin="863,187,0,0" VerticalAlignment="Top" Height="160" Width="160" BorderBrush="{x:Null}" Click="btStaff_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Staff.png" Stretch="Fill" TileMode="None"/>
+                <ImageBrush ImageSource="/Staff icon.png" Stretch="Fill" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button Content="Log Out" x:Name="btnLogOut" HorizontalAlignment="Left" Height="38" Margin="835,29,0,0" VerticalAlignment="Top" Width="93" FontSize="24" FontFamily="Britannic Bold" Click="btnLogOut_Click"/>
-        <Label Content="Origin" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="38" Margin="0,602,0,0" VerticalAlignment="Top" Width="82" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black" RenderTransformOrigin="-2.646,-1.394"/>
-        <Label Content="Owner" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="146,602,0,0" VerticalAlignment="Top" Width="80" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Pet" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="162,352,0,0" VerticalAlignment="Top" Width="46" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Purchase" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="748,352,0,0" VerticalAlignment="Top" Width="112" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Item" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="38" Margin="0,352,0,0" VerticalAlignment="Top" Width="60" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Staff" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="772,602,0,0" VerticalAlignment="Top" Width="64" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Button Content="Log Out" x:Name="btnLogOut" HorizontalAlignment="Left" Height="45" Margin="1103,42,0,0" VerticalAlignment="Top" Width="121" FontSize="24" FontFamily="Bahnschrift" Click="btnLogOut_Click" FontWeight="Bold" Background="#FFD03A35" BorderBrush="#FF505050"/>
+        <Label x:Name="OriginLbl" Content="Origin" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="38" Margin="0,342,0,0" VerticalAlignment="Top" Width="132" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1" RenderTransformOrigin="-2.646,-1.394"/>
+        <Label x:Name="OwnerLBl" Content="Owner" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="38" Margin="0,579,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1"/>
+        <Label x:Name="PetLbl" Content="Pet" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="290,342,0,0" VerticalAlignment="Top" Width="46" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1"/>
+        <Label x:Name="PurchaseLbl" Content="Purchase" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="868,574,0,0" VerticalAlignment="Top" Width="150" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1"/>
+        <Label x:Name="ItemLbl" Content="Item" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="283,574,0,0" VerticalAlignment="Top" Width="60" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1"/>
+        <Label x:Name="StaffLBl" Content="Staff" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="868,342,0,0" VerticalAlignment="Top" Width="150" FontSize="20" FontFamily="Bahnschrift SemiBold" Background="{x:Null}" BorderThickness="1"/>
     </Grid>
 </Window>

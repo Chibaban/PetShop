@@ -22,7 +22,7 @@ namespace PetShop
         public Home_Page()
         {
             InitializeComponent();
-            lbGetDate.Content = DateTime.Now.ToString("yyyy-MM-dd");
+            lbGetDate.Content = "Date : " + DateTime.Now.ToString("MMM-dd-yyyy");
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)

@@ -193,5 +193,56 @@
   <ItemGroup>
     <Resource Include="Staff DP.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="log in page - pet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="home page - pet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pet icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Owner icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Item icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Origin icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Staff icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Purchase icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="home page pet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pet shop home page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other pet page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="website.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="home-icon-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="views.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="calico background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="paw background.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

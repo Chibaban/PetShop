@@ -5,63 +5,210 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
         mc:Ignorable="d"
-        Title="Pet_Page" Height="720" Width="1280" Background="#FF8A8A8A">
+        Title="Pet_Page" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Background="#FF8A8A8A">
+    <Window.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="ListBox.Static.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Static.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9"/>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="{StaticResource ListBox.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ListBox.Static.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border x:Name="Bd" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="1" SnapsToDevicePixels="true">
+                            <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Border}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsGrouping" Value="true"/>
+                                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush/>
+            <ImageBrush ImageSource="/paw background.png"/>
         </Grid.Background>
-        <ListBox x:Name="lbPets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="857,265,84,144" FontSize="24" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbStaffs_SelectionChanged"/>
-        <Label Content="Peyts" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="40" Margin="992,210,0,0" VerticalAlignment="Top" Width="70" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="20,23,0,0" VerticalAlignment="Top" Height="72" Width="75" BorderBrush="#00000000" Click="btHome_Click">
+        <ListBox x:Name="lbPets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="857,234,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbStaffs_SelectionChanged" Background="#7FFFFFFF" HorizontalAlignment="Left" Width="339" Height="327" VerticalAlignment="Top"/>
+        <Label Content="Pets List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="66" Margin="857,168,0,0" VerticalAlignment="Top" Width="339" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="56,44,0,0" VerticalAlignment="Top" Height="100" Width="100" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/home.png"/>
+                <ImageBrush ImageSource="/Pet icon.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="850,100,0,0" VerticalAlignment="Top" Height="70" Width="74" BorderBrush="#00000000" Click="btViewing_Click">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="957,100,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Viewing.png"/>
+                <ImageBrush ImageSource="/views.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Pet Color:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="446,232,0,0" VerticalAlignment="Top" Height="36" Width="114" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Birthday:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="413,267,0,0" VerticalAlignment="Top" Height="37" Width="147" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Growth:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="426,305,0,0" VerticalAlignment="Top" Height="36" Width="134" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Vaccine ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="433,342,0,0" VerticalAlignment="Top" Height="36" Width="127" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Info:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="462,380,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbPetColor" HorizontalAlignment="Left" Height="31" Margin="562,234,0,0" TextWrapping="Wrap" Text="Color of the Pety" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetBirthday" HorizontalAlignment="Left" Height="31" Margin="562,271,0,0" TextWrapping="Wrap" Text="Birthday of Pet" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetGrowth" HorizontalAlignment="Left" Height="31" Margin="562,308,0,0" TextWrapping="Wrap" Text="Young, Adult or Senior" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetVaccine" HorizontalAlignment="Left" Height="31" Margin="562,345,0,0" TextWrapping="Wrap" Text="Vaccinatyion of Pet" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetInfo" HorizontalAlignment="Left" Height="31" Margin="562,382,0,0" TextWrapping="Wrap" Text="Pet'ys Info" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Sayve" HorizontalAlignment="Left" Margin="576,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnSave_Click"/>
-        <Button x:Name="btnCreate" Content="Cryeate" HorizontalAlignment="Left" Margin="941,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="31" Margin="906,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
-        <Label Content="Labely" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="569,74,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Adminy" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="622,23,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Seyarch:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="800,41,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="24" FontFamily="Britannic Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="194,100,0,0" VerticalAlignment="Top" Width="208">
-            <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
+        <Label Content="Color: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="448,234,0,0" VerticalAlignment="Top" Height="36" Width="114" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Birthday: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="415,268,0,0" VerticalAlignment="Top" Height="37" Width="147" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Growth: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="428,306,0,0" VerticalAlignment="Top" Height="36" Width="134" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Vaccine: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="435,342,0,0" VerticalAlignment="Top" Height="36" Width="127" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Pet Info: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="462,380,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbPetColor" HorizontalAlignment="Left" Height="31" Margin="562,234,0,0" TextWrapping="Wrap" Text="Color of the Pety" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetBirthday" HorizontalAlignment="Left" Height="31" Margin="562,271,0,0" TextWrapping="Wrap" Text="Birthday of Pet" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetGrowth" HorizontalAlignment="Left" Height="31" Margin="562,308,0,0" TextWrapping="Wrap" Text="Young, Adult or Senior" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetVaccine" HorizontalAlignment="Left" Height="31" Margin="562,345,0,0" TextWrapping="Wrap" Text="Vaccinatyion of Pet" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetInfo" HorizontalAlignment="Left" Height="31" Margin="562,382,0,0" TextWrapping="Wrap" Text="Pet'ys Info" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="562,606,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Bahnschrift" Click="btnSave_Click" FontWeight="Bold"/>
+        <Button x:Name="btnCreate" Content="Create New Entry" HorizontalAlignment="Left" Margin="857,572,0,0" VerticalAlignment="Top" Height="38" Width="339" FontSize="24" FontFamily="Bahnschrift" Click="btnCreate_Click" FontWeight="Bold"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="36" Margin="563,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="Black" TextChanged="tbSearch_TextChanged" Foreground="#FFF4F3E3"/>
+        <Label Content="Label" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="562,49,0,0" VerticalAlignment="Top" Width="296" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="198,49,0,0" VerticalAlignment="Top" Width="204" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="Search: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="462,106,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="24" FontFamily="Bahnschrift SemiBold" Foreground="#FF795E49"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="194,100,0,0" VerticalAlignment="Top" Width="208">
+            <Image HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="350" Margin="194,100,0,0"/>
         </Border>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="34" Width="208" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="194,320,0,0" VerticalAlignment="Top" Height="34" Width="208" FontSize="24" FontFamily="Bahnschrift" Click="btnUpload_Click" IsEnabled="False" FontWeight="Bold"/>
         <Image x:Name="imagePicture" Margin="198,105,0,0" Stretch="None" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
-        <Label Content="Pet ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="98,383,0,0" VerticalAlignment="Top" Height="33" Width="81" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="63,419,0,0" VerticalAlignment="Top" Height="32" Width="116" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Type:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="75,453,0,0" VerticalAlignment="Top" Height="38" Width="107" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Sex:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="88,488,0,0" VerticalAlignment="Top" Height="34" Width="94" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Pet Pedigree:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="33,524,0,0" VerticalAlignment="Top" Height="36" Width="153" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbPetID" HorizontalAlignment="Left" Height="31" Margin="182,384,0,0" TextWrapping="Wrap" Text="Pet ID g" VerticalAlignment="Top" Width="231" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetName" HorizontalAlignment="Left" Height="31" Margin="182,420,0,0" TextWrapping="Wrap" Text="Name of Pety" VerticalAlignment="Top" Width="231" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetType" HorizontalAlignment="Left" Height="31" Margin="182,458,0,0" TextWrapping="Wrap" Text="Cat or Dog" VerticalAlignment="Top" Width="231" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetSex" HorizontalAlignment="Left" Height="31" Margin="182,494,0,0" TextWrapping="Wrap" Text="Male or Femaley" VerticalAlignment="Top" Width="231" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbPetPedigree" HorizontalAlignment="Left" Height="31" Margin="182,530,0,0" TextWrapping="Wrap" Text="Pet Breedy" VerticalAlignment="Top" Width="231" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Label Content="Pet Price:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="448,416,0,0" VerticalAlignment="Top" Height="35" Width="114" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbPetPrice" HorizontalAlignment="Left" Height="31" Margin="562,421,0,0" TextWrapping="Wrap" Text="Pet's Price" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Label Content="Pet Status:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="437,455,0,0" VerticalAlignment="Top" Height="37" Width="125" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbPetStatus" HorizontalAlignment="Left" Height="31" Margin="562,458,0,0" TextWrapping="Wrap" Text="Sold or Available" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Label Content="Origin ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="447,490,0,0" VerticalAlignment="Top" Height="39" Width="113" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Label Content="Owner's ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,530,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="950,116,0,0" VerticalAlignment="Top" Width="246" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed">
+        <Label Content="Pet ID: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="113,382,0,0" VerticalAlignment="Top" Height="32" Width="81" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Name: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="78,418,0,0" VerticalAlignment="Top" Height="32" Width="116" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Type: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="87,457,0,0" VerticalAlignment="Top" Height="38" Width="107" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Sex: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="100,492,0,0" VerticalAlignment="Top" Height="34" Width="94" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Pedigree: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="41,530,0,0" VerticalAlignment="Top" Height="36" Width="153" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbPetID" HorizontalAlignment="Left" Height="31" Margin="194,384,0,0" TextWrapping="Wrap" Text="Pet ID g" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetName" HorizontalAlignment="Left" Height="31" Margin="194,420,0,0" TextWrapping="Wrap" Text="Name of Pety" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetType" HorizontalAlignment="Left" Height="31" Margin="194,458,0,0" TextWrapping="Wrap" Text="Cat or Dog" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetSex" HorizontalAlignment="Left" Height="31" Margin="194,494,0,0" TextWrapping="Wrap" Text="Male or Femaley" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbPetPedigree" HorizontalAlignment="Left" Height="31" Margin="194,530,0,0" TextWrapping="Wrap" Text="Pet Breedy" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Label Content="Price: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="448,419,0,0" VerticalAlignment="Top" Height="35" Width="114" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbPetPrice" HorizontalAlignment="Left" Height="31" Margin="562,421,0,0" TextWrapping="Wrap" Text="Pet's Price" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Label Content="Status: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="437,455,0,0" VerticalAlignment="Top" Height="37" Width="125" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbPetStatus" HorizontalAlignment="Left" Height="31" Margin="562,458,0,0" TextWrapping="Wrap" Text="Sold or Available" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Label Content="Origin ID: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="449,494,0,0" VerticalAlignment="Top" Height="39" Width="113" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Label Content="Owner's ID: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="432,528,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="1007,101,0,0" VerticalAlignment="Top" Width="189" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed" Height="36" FontFamily="Bahnschrift Light" Foreground="#FFF4F4F4">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF4F4F4" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <CheckBox x:Name="cbDog" Content="Dog" Checked="cbDog_Checked" Unchecked="cbDog_Unchecked"/>
             <CheckBox x:Name="cbCat" Content="Cat" Checked="cbCat_Checked" Unchecked="cbCat_Unchecked"/>
             <CheckBox x:Name="cbMale" Content="Male" Checked="cbMale_Checked" Unchecked="cbMale_Unchecked"/>
@@ -78,5 +225,8 @@
             <CheckBox x:Name="cbAvailable" Content="Available" Checked="cbAvailable_Checked" Unchecked="cbAvailable_Unchecked"/>
             <CheckBox x:Name="cbSold" Content="Sold" Checked="cbSold_Checked" Unchecked="cbSold_Unchecked"/>
         </ComboBox>
+        <Label Content="Maximum selection of 5" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="36" Margin="1013,137,0,0" VerticalAlignment="Top" Width="183" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="Home" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="36" Margin="78,125,0,0" VerticalAlignment="Top" Width="92" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="View All" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="23" Margin="946,137,0,0" VerticalAlignment="Top" Width="62" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
     </Grid>
 </Window>

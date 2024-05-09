@@ -5,42 +5,188 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
         mc:Ignorable="d"
-        Title="Item_Page" Height="720" Width="980" Background="#FF8A8A8A">
+        Title="Item_Page" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Background="#FF8A8A8A">
+    <Window.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="ListBox.Static.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Static.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9"/>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="{StaticResource ListBox.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ListBox.Static.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border x:Name="Bd" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="1" SnapsToDevicePixels="true">
+                            <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ListBox.Disabled.Border}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsGrouping" Value="true"/>
+                                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="lbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="568,265,74,144" FontSize="24" BorderBrush="Black" FontFamily="Britannic Bold" SelectionChanged="lbItems_SelectionChanged"/>
-        <Label Content="Iteyms" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="702,210,0,0" VerticalAlignment="Top" Width="82" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="100,63,0,0" VerticalAlignment="Top" Height="90" Width="94" BorderBrush="#00000000" Click="btHome_Click">
+        <Grid.Background>
+            <ImageBrush ImageSource="/paw background.png"/>
+        </Grid.Background>
+        <ListBox x:Name="lbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="848,318,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbItems_SelectionChanged" HorizontalAlignment="Left" Width="240" Height="245" VerticalAlignment="Top" Background="#7FFFFFFF"/>
+        <Label Content="Items List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="50" Margin="856,268,0,0" VerticalAlignment="Top" Width="224" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="73,62,0,0" VerticalAlignment="Top" Height="100" Width="100" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/home.png"/>
+                <ImageBrush ImageSource="/Item icon.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="560,100,0,0" VerticalAlignment="Top" Height="70" Width="74" BorderBrush="#00000000" Click="btViewing_Click">
+        <Button Content="" x:Name="btViewing" HorizontalAlignment="Left" Margin="848,187,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="#00000000" Click="btViewing_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Viewing.png"/>
+                <ImageBrush ImageSource="/views.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Item ID:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="166,369,0,0" VerticalAlignment="Top" Height="38" Width="94" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Item Description:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="70,408,0,0" VerticalAlignment="Top" Height="38" Width="196" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Item Price:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="138,448,0,0" VerticalAlignment="Top" Height="38" Width="124" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="# of Stock:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="134,486,0,0" VerticalAlignment="Top" Height="38" Width="128" FontSize="24" FontFamily="Britannic Bold"/>
-        <Label Content="Item's Availability:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="64,522,0,0" VerticalAlignment="Top" Height="38" Width="198" FontSize="24" FontFamily="Britannic Bold"/>
-        <TextBox x:Name="tbItemID" HorizontalAlignment="Left" Height="31" Margin="264,372,0,0" TextWrapping="Wrap" Text="Item ID" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemDesc" HorizontalAlignment="Left" Height="31" Margin="264,412,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemPrice" HorizontalAlignment="Left" Height="31" Margin="264,451,0,0" TextWrapping="Wrap" Text="Item's Price" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemStock" HorizontalAlignment="Left" Height="31" Margin="264,490,0,0" TextWrapping="Wrap" Text="Item Stock" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <TextBox x:Name="tbItemAvail" HorizontalAlignment="Left" Height="31" Margin="264,529,0,0" TextWrapping="Wrap" Text="In/Out of Stock" VerticalAlignment="Top" Width="232" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black"/>
-        <Button x:Name="btnSave" Content="Sayve" HorizontalAlignment="Left" Margin="286,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnSave_Click"/>
-        <Button x:Name="btnCreate" Content="Cryeate" HorizontalAlignment="Left" Margin="652,591,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Britannic Bold" Click="btnCreate_Click"/>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="31" Margin="616,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="24" FontFamily="Britannic Bold" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
-        <Label Content="Admin" HorizontalContentAlignment="Center" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="100,175,0,0" VerticalAlignment="Top" Width="94" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Label" HorizontalContentAlignment="Center" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="47,235,0,0" VerticalAlignment="Top" Width="200" FontSize="24" FontFamily="Britannic Bold" Background="White" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Seyarch:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="510,41,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Britannic Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="276,60,0,0" VerticalAlignment="Top" Width="208">
+        <Label Content="Item ID: " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="284,372,0,0" VerticalAlignment="Top" Height="38" Width="94" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Description: " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="182,412,0,0" VerticalAlignment="Top" Height="38" Width="196" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Price: " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="254,450,0,0" VerticalAlignment="Top" Height="38" Width="124" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="No. of Stock: " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,490,0,0" VerticalAlignment="Top" Height="38" Width="128" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Content="Availability: " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="180,528,0,0" VerticalAlignment="Top" Height="38" Width="198" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <TextBox x:Name="tbItemID" HorizontalAlignment="Left" Height="31" Margin="399,375,0,0" TextWrapping="Wrap" Text="Item ID" VerticalAlignment="Top" Width="315" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbItemDesc" HorizontalAlignment="Left" Height="31" Margin="399,415,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top" Width="315" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbItemPrice" HorizontalAlignment="Left" Height="31" Margin="399,454,0,0" TextWrapping="Wrap" Text="Item's Price" VerticalAlignment="Top" Width="315" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbItemStock" HorizontalAlignment="Left" Height="31" Margin="399,493,0,0" TextWrapping="Wrap" Text="Item Stock" VerticalAlignment="Top" Width="315" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <TextBox x:Name="tbItemAvail" HorizontalAlignment="Left" Height="31" Margin="399,532,0,0" TextWrapping="Wrap" Text="In/Out of Stock" VerticalAlignment="Top" Width="315" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="574,600,0,0" VerticalAlignment="Top" Height="38" Width="140" FontSize="24" FontFamily="Bahnschrift" Click="btnSave_Click" FontWeight="Bold"/>
+        <Button x:Name="btnCreate" Content="Create New Entry" HorizontalAlignment="Left" Margin="848,574,0,0" VerticalAlignment="Top" Height="37" Width="240" FontSize="24" FontFamily="Bahnschrift" Click="btnCreate_Click" FontWeight="Bold"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="32" Margin="848,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="Black" TextChanged="tbSearch_TextChanged"/>
+        <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="190,47,0,0" VerticalAlignment="Top" Width="160" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="Label" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="399,47,0,0" VerticalAlignment="Top" Width="416" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="Search:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="746,98,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="24" FontFamily="Bahnschrift" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="206" Margin="399,101,0,0" VerticalAlignment="Top" Width="208">
             <Image HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="350" Margin="160,394,0,0"/>
         </Border>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="276,295,0,0" VerticalAlignment="Top" Height="34" Width="208" FontSize="24" FontFamily="Britannic Bold" Click="btnUpload_Click" IsEnabled="False"/>
-        <Image x:Name="imagePicture" Margin="281,64,0,0" Stretch="None" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
-        <RadioButton x:Name="InStock" Content="In Stock" HorizontalAlignment="Left" Margin="702,114,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="InStock_Checked"/>
-        <RadioButton x:Name="OutOfStock" Content="Out Of Stock" HorizontalAlignment="Left" Margin="702,145,0,0" VerticalAlignment="Top" FontFamily="Britannic Bold" FontSize="24" Checked="OutOfStock_Checked"/>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="399,312,0,0" VerticalAlignment="Top" Height="34" Width="202" FontSize="24" FontFamily="Bahnschrift" Click="btnUpload_Click" IsEnabled="False" FontWeight="Bold"/>
+        <Image x:Name="imagePicture" Margin="399,101,0,0" Stretch="None" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+        <RadioButton x:Name="InStock" Content="In Stock" HorizontalAlignment="Left" Margin="936,184,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="24" Checked="InStock_Checked" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <RadioButton x:Name="OutOfStock" Content="Out Of Stock" HorizontalAlignment="Left" Margin="936,215,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="24" Checked="OutOfStock_Checked" FontWeight="Bold" Foreground="#FFE49D5A"/>
+        <Label Content="View All" HorizontalContentAlignment="Center" x:Name="lbAdmin_Copy" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="40" Margin="828,223,0,0" VerticalAlignment="Top" Width="80" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="Home" HorizontalContentAlignment="Center" x:Name="lbAdmin_Copy1" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="40" Margin="67,153,0,0" VerticalAlignment="Top" Width="80" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="Black"/>
     </Grid>
 </Window>
