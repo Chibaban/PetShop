@@ -202,7 +202,7 @@
         <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
         <Label Content="Owner's ID: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="432,528,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
         <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
-        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="1007,101,0,0" VerticalAlignment="Top" Width="159" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed" Height="36" FontFamily="Bahnschrift Light" Foreground="#FFF4F4F4">
+        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="1007,101,0,0" VerticalAlignment="Top" Width="159" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed" Height="36" FontFamily="Bahnschrift Light" Foreground="Black">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>

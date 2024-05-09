@@ -148,6 +148,22 @@ namespace PetShop
                            select pets.Pet_Name;
 
             lbPets.ItemsSource = PetData.ToList();
+
+            cbDog.IsChecked = false;
+            cbCat.IsChecked = false;
+            cbMale.IsChecked = false;
+            cbFemale.IsChecked = false;
+            cbYoung.IsChecked = false;
+            cbAdult.IsChecked = false;
+            cbSenior.IsChecked = false;
+            cbNoVax.IsChecked = false;
+            cbF5.IsChecked = false;
+            cbRB.IsChecked = false;
+            cbF5RB.IsChecked = false;
+            cbDA2PP.IsChecked = false;
+            cbDA2PPRB.IsChecked = false;
+            cbAvailable.IsChecked = false;
+            cbSold.IsChecked = false;
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
