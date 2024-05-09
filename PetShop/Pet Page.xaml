@@ -151,8 +151,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="/paw background.png"/>
         </Grid.Background>
-        <ListBox x:Name="lbPets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="857,234,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbStaffs_SelectionChanged" Background="#7FFFFFFF" HorizontalAlignment="Left" Width="339" Height="327" VerticalAlignment="Top"/>
-        <Label Content="Pets List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="66" Margin="857,168,0,0" VerticalAlignment="Top" Width="339" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <ListBox x:Name="lbPets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="857,234,0,0" FontSize="24" BorderBrush="Black" FontFamily="Bahnschrift" SelectionChanged="lbStaffs_SelectionChanged" Background="#7FFFFFFF" HorizontalAlignment="Left" Width="309" Height="327" VerticalAlignment="Top"/>
+        <Label Content="Pets List" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Height="66" Margin="857,168,0,0" VerticalAlignment="Top" Width="309" FontSize="36" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
         <Button Content="" x:Name="btHome" HorizontalAlignment="Left" Margin="56,44,0,0" VerticalAlignment="Top" Height="100" Width="100" BorderBrush="#00000000" Click="btHome_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Pet icon.png"/>
@@ -174,7 +174,7 @@
         <TextBox x:Name="tbPetVaccine" HorizontalAlignment="Left" Height="31" Margin="562,345,0,0" TextWrapping="Wrap" Text="Vaccinatyion of Pet" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
         <TextBox x:Name="tbPetInfo" HorizontalAlignment="Left" Height="31" Margin="562,382,0,0" TextWrapping="Wrap" Text="Pet'ys Info" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="562,606,0,0" VerticalAlignment="Top" Height="37" Width="140" FontSize="24" FontFamily="Bahnschrift" Click="btnSave_Click" FontWeight="Bold"/>
-        <Button x:Name="btnCreate" Content="Create New Entry" HorizontalAlignment="Left" Margin="857,572,0,0" VerticalAlignment="Top" Height="38" Width="339" FontSize="24" FontFamily="Bahnschrift" Click="btnCreate_Click" FontWeight="Bold"/>
+        <Button x:Name="btnCreate" Content="Create New Entry" HorizontalAlignment="Left" Margin="857,572,0,0" VerticalAlignment="Top" Height="38" Width="309" FontSize="24" FontFamily="Bahnschrift" Click="btnCreate_Click" FontWeight="Bold"/>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="36" Margin="563,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="Black" TextChanged="tbSearch_TextChanged" Foreground="#FFF4F3E3"/>
         <Label Content="Label" HorizontalContentAlignment="Left" x:Name="lbGetDate" HorizontalAlignment="Left" Height="38" Margin="562,49,0,0" VerticalAlignment="Top" Width="296" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
         <Label Content="User :  Admin" HorizontalContentAlignment="Left" x:Name="lbAdmin" HorizontalAlignment="Left" Height="40" Margin="198,49,0,0" VerticalAlignment="Top" Width="204" FontSize="24" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FFE49D5A"/>
@@ -202,7 +202,7 @@
         <TextBox x:Name="tbOriginID" HorizontalAlignment="Left" Height="31" Margin="562,494,0,0" TextWrapping="Wrap" Text="Origin's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
         <Label Content="Owner's ID: " HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="432,528,0,0" VerticalAlignment="Top" Height="36" Width="130" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold"/>
         <TextBox x:Name="tbOwnersID" HorizontalAlignment="Left" Height="31" Margin="562,530,0,0" TextWrapping="Wrap" Text="Owner's ID" VerticalAlignment="Top" Width="214" FontSize="24" FontFamily="Bahnschrift Light" BorderBrush="{x:Null}" Background="#7FFFFFFF"/>
-        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="1007,101,0,0" VerticalAlignment="Top" Width="189" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed" Height="36" FontFamily="Bahnschrift Light" Foreground="#FFF4F4F4">
+        <ComboBox x:Name="categoryBox" HorizontalAlignment="Left" Margin="1007,101,0,0" VerticalAlignment="Top" Width="159" FontSize="24" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="categoryBox_DropDownClosed" Height="36" FontFamily="Bahnschrift Light" Foreground="#FFF4F4F4">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -225,7 +225,7 @@
             <CheckBox x:Name="cbAvailable" Content="Available" Checked="cbAvailable_Checked" Unchecked="cbAvailable_Unchecked"/>
             <CheckBox x:Name="cbSold" Content="Sold" Checked="cbSold_Checked" Unchecked="cbSold_Unchecked"/>
         </ComboBox>
-        <Label Content="Maximum selection of 5" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="36" Margin="1013,137,0,0" VerticalAlignment="Top" Width="183" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
+        <Label Content="Maximum selection of 5" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="36" Margin="1013,137,0,0" VerticalAlignment="Top" Width="153" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
         <Label Content="Home" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="36" Margin="78,125,0,0" VerticalAlignment="Top" Width="92" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
         <Label Content="View All" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="23" Margin="946,137,0,0" VerticalAlignment="Top" Width="62" FontFamily="Bahnschrift" Background="{x:Null}" BorderThickness="1" FontWeight="Bold" Foreground="#FF795E49"/>
     </Grid>
